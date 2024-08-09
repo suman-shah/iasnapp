@@ -8,6 +8,8 @@
     tools:context=".activities.MainActivity">
 
     <ExpandableListView
+        android:dividerHeight="0dp"
+        android:divider="@null"
         android:groupIndicator="@null"
         android:id="@+id/expandableListView"
         android:layout_width="match_parent"
