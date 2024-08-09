@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
         chapterList=new ArrayList<>();
         topicsList=new ArrayList<>();
 // chapter 1
-        topicsList.add(new Topics("Introduction 1",""));
-        topicsList.add(new Topics("Introduction 2",""));
-        topicsList.add(new Topics("Introduction 3",""));
-        topicsList.add(new Topics("Introduction 4",""));
+        topicsList.add(new Topics("Introduction 1","t11"));
+        topicsList.add(new Topics("Introduction 2","t12"));
+        topicsList.add(new Topics("Introduction 3","t13"));
+        topicsList.add(new Topics("Introduction 4","t14"));
         chapterList.add(new Chapter("Chapter 1",topicsList));
 // chapter 2
         topicsList=new ArrayList<>();
-        topicsList.add(new Topics("Introduction1 1",""));
+        topicsList.add(new Topics("Introduction1 1","t11"));
         topicsList.add(new Topics("Introduction1 2",""));
         topicsList.add(new Topics("Introduction1 3",""));
         topicsList.add(new Topics("Introduction1 4",""));
