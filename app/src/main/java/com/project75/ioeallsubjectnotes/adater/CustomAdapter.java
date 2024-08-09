@@ -1,6 +1,7 @@
 package com.project75.ioeallsubjectnotes.adater;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 
 import com.project75.ioeallsubjectnotes.R;
+import com.project75.ioeallsubjectnotes.activities.FullView;
 import com.project75.ioeallsubjectnotes.model.Chapter;
 
 import java.util.List;
@@ -96,7 +98,14 @@ public class CustomAdapter implements ExpandableListAdapter {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, chapterList.get(groupPosition).getTopicsList().get(childPosition).getFileName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context, FullView.class);
+                intent.putExtra("fileName", chapterList.get(groupPosition).getTopicsList().get(childPosition).getFileName());
+
+                context.startActivity(intent);
+
+
+
             }
         });
 

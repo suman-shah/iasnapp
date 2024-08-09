@@ -1,5 +1,6 @@
 package com.project75.ioeallsubjectnotes.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.project75.ioeallsubjectnotes.R;
 
 public class FullView extends AppCompatActivity {
+    String filename;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +25,8 @@ public class FullView extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        intent=getIntent();
+        filename=intent.getStringExtra("fileName");
     }
 }
