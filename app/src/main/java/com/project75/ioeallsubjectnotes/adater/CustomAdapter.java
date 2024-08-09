@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.cardview.widget.CardView;
 
 import com.project75.ioeallsubjectnotes.R;
 import com.project75.ioeallsubjectnotes.model.Chapter;
@@ -88,6 +91,16 @@ public class CustomAdapter implements ExpandableListAdapter {
 
         TextView topicName = (TextView) convertView.findViewById(R.id.topicTitle);
         topicName.setText(chapterList.get(groupPosition).getTopicsList().get(childPosition).getTopicName());
+
+        CardView cardView = (CardView) convertView.findViewById(R.id.topicClick);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, chapterList.get(groupPosition).getTopicsList().get(childPosition).getFileName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         return convertView;
     }
 
