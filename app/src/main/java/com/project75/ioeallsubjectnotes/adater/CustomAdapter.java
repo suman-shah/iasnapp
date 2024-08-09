@@ -2,6 +2,7 @@ package com.project75.ioeallsubjectnotes.adater;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
@@ -16,10 +17,12 @@ public class CustomAdapter implements ExpandableListAdapter {
 
     List<Chapter> chapterList;
     Context context;
+    LayoutInflater layoutInflater;
 
     public CustomAdapter(List<Chapter> chapterList, Context context) {
         this.chapterList = chapterList;
         this.context = context;
+        this.layoutInflater = LayoutInflater.from(context);
     }
 
 
@@ -70,17 +73,20 @@ public class CustomAdapter implements ExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        convertView=layoutInflater.from(context).inflate(R.layout.chapter_item,parent,false);
-        return convertView;
-        TextView chapterName=(TextView)convertView.findViewById(R.id.chapterTitle);
+
+        convertView = LayoutInflater.from(context).inflate(R.layout.chapter_item, parent, false);
+
+        TextView chapterName = (TextView) convertView.findViewById(R.id.chapterTitle);
         chapterName.setText(chapterList.get(groupPosition).getChapterName());
+
         return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        convertView=layoutInflater.from(context).inflate(R.layout.topics_item,parent,false);
-        TextView topicName=(TextView)convertView.findViewById(R.id.topicTitle);
+        convertView = LayoutInflater.from(context).inflate(R.layout.topics_item, parent, false);
+
+        TextView topicName = (TextView) convertView.findViewById(R.id.topicTitle);
         topicName.setText(chapterList.get(groupPosition).getTopicsList().get(childPosition).getTopicName());
         return convertView;
     }
