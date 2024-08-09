@@ -1,6 +1,11 @@
 # Android PDF Viewer Library Implementation
 
 This repository demonstrates the implementation of the `libs.android.pdf.viewer` library in an Android project.
+maven { url "https://jcenter.bintray.com" }
+
+---------------------------------
+
+android.enableJetifier=true
 
 ## Prerequisites
 
