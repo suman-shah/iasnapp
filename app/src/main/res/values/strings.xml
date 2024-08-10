@@ -7,10 +7,215 @@
         <item>Drawing Note 3</item>
 
     </string-array>
+
     <string-array name="Stories_name_engineering_physics">
         <item>Engineering Physics Note 1</item>
-        <item>Engineering Physics Note 2</item>
-        <item>Engineering Physics Note 3</item>
+
+    </string-array>    <string-array name="Stories_name_AppliedMechanics">
+        <item>Applied Mechanics Note 1</item>
+        <item>Applied Mechanics Note 2</item>
+
+    </string-array>    <string-array name="Stories_name_BasicElectricalEngineering">
+        <item>BasicElectricalEngineering Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_EngineeringMathematicsI">
+        <item>Engineering Mathematics I Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_ComputerProgramming">
+        <item>Computer Programming Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_EngineeringMathematicsII">
+        <item>Engineering Mathematics II Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_EngineeringDrawingII">
+        <item>Engineering Drawing II Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_BasicElectronicsEngineering">
+        <item>Basic Electronics Engineering Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_EngineeringChemistry">
+        <item>Engineering Chemistry Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_FundamentalofThermodynamicsandHeatTransfer">
+        <item>Fundamental of Thermodynamics and HeatTransfer Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_WorkshopTechnology">
+        <item>Workshop Technology Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_EngineeringMathematicsIII">
+        <item>Engineering Mathematics III Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_ObjectOrientedProgramming">
+        <item>Object Oriented Programming Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_ElectricCircuitTheory">
+        <item>Electric Circuit Theory Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_ElectronicsDevicesandCircuit">
+        <item>Electronics Devices and Circuit Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_DigitalLogic">
+        <item>Digital Logic Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_ElectricalEngineeringMaterial">
+        <item>Electrical Engineering Material Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_Electromagnetic">
+        <item>Electromagnetic Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_NumericalMethod">
+        <item>NumericalMethod Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_AppliedMathematics">
+        <item>Applied Mathematics Note 1</item>
+
+    </string-array>    <string-array name="Stories_name_InstrumentationI">
+        <item>InstrumentationI Note 1</item>
 
     </string-array>
+
+    <string-array name="Stories_name_ElectricalMachinesI">
+        <item>Electrical MachinesI Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_PowerSystemAnalysisI">
+        <item>Power System Analysis I Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectricMachinesII">
+        <item>Electric Machines-II Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectricMachineDesign">
+        <item>Electric Machine Design Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_PowerSystemAnalysisII">
+        <item>Power System Analysis II Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_CommunicationEnglish">
+        <item>Communication English Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ProbabilityandStatistics">
+        <item>Probability and Statistics Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ControlSystemr">
+        <item>Control System Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_InstrumentationII">
+        <item>Instrumentation II Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_EngineeringEconomics">
+        <item>Engineering Economics Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_HydroPower">
+        <item>Hydro Power Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_SwitchgearandProtection">
+        <item>Switchgear and Protection Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_DigitalControlSystem">
+        <item>Digital Control System Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_IndustrialPowerDistributionandIllumination">
+        <item>Industrial Power Distribution and Illumination Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_SignalAnalysis">
+        <item>Signal Analysis Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ProjectEngineeringr">
+        <item>Project Engineering Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_TechnologyEnvironmentandSociety">
+        <item>Technology Environment and Society Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_OrganizationandManagement">
+        <item>Organization and Management Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_UtilizationofElectricalEnergy">
+        <item>Utilization of Electrical Energy Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_PowerPlantEquipment">
+        <item>Power Plant Equipment Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ProjectPartA">
+        <item>Project(PartA) Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIEnergyElectricalSystemManagement">
+        <item>Elective I: Energy Electrical System Management Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIReliabilityEngineering">
+        <item>Elective I: Reliability Engineering Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIRuralElectrification">
+        <item>Elective I: Rural Electrification Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_EngineeringProfessionalPractice">
+        <item>Engineering Professional Practice Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_HighVoltageEngineering">
+        <item>HighVoltage Engineering Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_PowerPlantDesign">
+        <item>Power Plant Design Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_TransmissionandDistributionSystemDesign">
+        <item>Transmission and Distribution System Design Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ProjectPartBr">
+        <item>Project(PartB) Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIIAdvancedPowerSystemAnalysis">
+        <item>ElectiveII: Advanced Power System Analysis Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIIAppliedPhotovoltaic">
+        <item>ElectiveII: Applied Photovoltaic Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIIIArtificialNeuralNetwork">
+        <item>ElectiveIII: Artificial Neural Network Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIIIMicroHydroPower">
+        <item>ElectiveIII: Micro-Hydro Power Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIIIWindEnergyConversionSystem">
+        <item>ElectiveIII: Wind Energy Conversion System Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_ElectiveIIBiomedicalInstrumentation">
+        <item>ElectiveII: Biomedical Instrumentation Note 1</item>
+    </string-array>
+
+    <string-array name="Stories_name_Microprocessor">
+        <item>Microprocessor Note 1</item>
+    </string-array>
+
 </resources>
