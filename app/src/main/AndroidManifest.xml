@@ -13,6 +13,18 @@
         android:theme="@style/Theme.IoEAllSubjectNotes"
         tools:targetApi="31">
         <activity
+            android:name=".activities.FullViewElectiveIIIWindEnergyConversionSystem"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIIIWindEnergyConversionSystem"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectiveIIBiomedicalInstrumentation"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIIBiomedicalInstrumentation"
+            android:exported="false" />
+        <activity
             android:name=".activities.FullViewEngineeringPhysics"
             android:exported="false" />
         <activity

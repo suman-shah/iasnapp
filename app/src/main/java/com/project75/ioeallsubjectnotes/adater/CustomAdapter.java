@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 
 import com.project75.ioeallsubjectnotes.R;
 import com.project75.ioeallsubjectnotes.model.Chapter;
+import com.project75.ioeallsubjectnotes.model.ElectiveIIBiomedicalInstrumentation;
 import com.project75.ioeallsubjectnotes.model.EngineeringDrawingI;
 import com.project75.ioeallsubjectnotes.model.EngineeringPhysics;
 import com.project75.ioeallsubjectnotes.model.Topics;
@@ -112,6 +113,242 @@ public class CustomAdapter implements ExpandableListAdapter {
                     intent = new Intent(context, EngineeringPhysics.class);
                     intent.putExtra("topic_name", topic.getTopicName());
                 }
+                if (topic.getTopicName().equals("Applied Mechanics")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Basic Electrical Engineering")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Mathematics I")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Computer Programming")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Mathematics II")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Drawing II")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Basic Electronics Engineering")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Chemistry")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Fundamental of Thermodynamics & Heat Transfer")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Workshop Technology")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Mathematics III")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Object Oriented Programming")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electric Circuit Theory")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electronics Devices and Circuit")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Digital Logic")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electrical Engineering Material")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electromagnetic")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Numerical Method")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Applied Mathematics")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Instrumentation I")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Microprocessor")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Power System Analysis I")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electrical Machines I")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electric Machines - II")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Electric Machine Design")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Power System Analysis II")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Communication English")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Probability and Statistics")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Control System")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Instrumentation II")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Economic")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Hydro Power")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Switchgear & Protection")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Digital Control System")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Industrial Power Distribution & Illumination")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Signal Analysis")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Project Engineering")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Technology Environment and Society")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Power Electronics")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Organization and Management")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Utilization of Electrical Energy")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Power Plant Equipment")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Project (Part A)")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective I : Energy Electrical System Management")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective I : Reliability Engineering")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective I : Rural Electrification")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Engineering Professional Practice")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("High Voltage Engineering")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Power Plant Design")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Transmission and Distribution System Design")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Project (Part B)")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective II : Advanced Power System Analysis")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective II : Applied Photovoltaic")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective II : Biomedical Instrumentation")) {
+                    intent = new Intent(context, ElectiveIIBiomedicalInstrumentation.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective III : Artificial Neural Network")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective III : Micro-Hydro Power")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                if (topic.getTopicName().equals("Elective III : Wind Energy Conversion System")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+
+
+
+
+
+
+
+
                 // Add more else if blocks for other topics and activities
 
                 if (intent != null) {
