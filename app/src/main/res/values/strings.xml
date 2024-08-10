@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">IoE All Subject Notes</string>
     <string name="chapter">Chapter</string>
+    <string-array name="Stories_name">
+        <item>Drawing Note 1</item>
+        <item>Drawing Note 2</item>
+        <item>Drawing Note 3</item>
+
+    </string-array>
+    <string-array name="Stories_name_engineering_physics">
+        <item>Engineering Physics Note 1</item>
+        <item>Engineering Physics Note 2</item>
+        <item>Engineering Physics Note 3</item>
+
+    </string-array>
 </resources>

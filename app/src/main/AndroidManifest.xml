@@ -13,10 +13,19 @@
         android:theme="@style/Theme.IoEAllSubjectNotes"
         tools:targetApi="31">
         <activity
+            android:name=".activities.FullViewEngineeringPhysics"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringPhysics"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringDrawingI"
+            android:exported="false" />
+        <activity
             android:name=".activities.SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".activities.FullView"
+            android:name=".activities.FullViewEngineeringDrawingI"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"

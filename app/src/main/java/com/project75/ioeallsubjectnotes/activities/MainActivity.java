@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         chapterList=new ArrayList<>();
         topicsList=new ArrayList<>();
 // First Semester
-        topicsList.add(new Topics("Engineering Drawing I","t11"));
+        topicsList.add(new Topics("Engineering Drawing I",""));
         topicsList.add(new Topics("Engineering Physics","t12"));
         topicsList.add(new Topics("Applied Mechanics","t13"));
         topicsList.add(new Topics("Basic Electrical Engineering","t14"));

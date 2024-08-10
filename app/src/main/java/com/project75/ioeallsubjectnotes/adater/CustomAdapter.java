@@ -8,19 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
 import com.project75.ioeallsubjectnotes.R;
-import com.project75.ioeallsubjectnotes.activities.FullView;
 import com.project75.ioeallsubjectnotes.model.Chapter;
+import com.project75.ioeallsubjectnotes.model.EngineeringDrawingI;
+import com.project75.ioeallsubjectnotes.model.EngineeringPhysics;
+import com.project75.ioeallsubjectnotes.model.Topics;
 
 import java.util.List;
 
 public class CustomAdapter implements ExpandableListAdapter {
 
     List<Chapter> chapterList;
+    List<Topics> topicsList;
     Context context;
     LayoutInflater layoutInflater;
 
@@ -98,14 +100,23 @@ public class CustomAdapter implements ExpandableListAdapter {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = null;
+                Topics topic = chapterList.get(groupPosition).getTopicsList().get(childPosition);
+                if (topic.getTopicName().equals("Engineering Drawing I")) {
+                    intent = new Intent(context, EngineeringDrawingI.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
 
-                Intent intent = new Intent(context, FullView.class);
-                intent.putExtra("fileName", chapterList.get(groupPosition).getTopicsList().get(childPosition).getFileName());
 
-                context.startActivity(intent);
+                }
+                if (topic.getTopicName().equals("Engineering Physics")) {
+                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent.putExtra("topic_name", topic.getTopicName());
+                }
+                // Add more else if blocks for other topics and activities
 
-
-
+                if (intent != null) {
+                    context.startActivity(intent);
+                }
             }
         });
 
