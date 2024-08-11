@@ -14,6 +14,8 @@ import androidx.cardview.widget.CardView;
 import com.project75.ioeallsubjectnotes.R;
 import com.project75.ioeallsubjectnotes.model.Chapter;
 import com.project75.ioeallsubjectnotes.model.ElectiveIIBiomedicalInstrumentation;
+import com.project75.ioeallsubjectnotes.model.ElectiveIIIArtificialNeuralNetwork;
+import com.project75.ioeallsubjectnotes.model.ElectiveIIIMicroHydroPower;
 import com.project75.ioeallsubjectnotes.model.EngineeringDrawingI;
 import com.project75.ioeallsubjectnotes.model.EngineeringPhysics;
 import com.project75.ioeallsubjectnotes.model.Topics;
@@ -330,11 +332,11 @@ public class CustomAdapter implements ExpandableListAdapter {
                     intent.putExtra("topic_name", topic.getTopicName());
                 }
                 if (topic.getTopicName().equals("Elective III : Artificial Neural Network")) {
-                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent = new Intent(context, ElectiveIIIArtificialNeuralNetwork.class);
                     intent.putExtra("topic_name", topic.getTopicName());
                 }
                 if (topic.getTopicName().equals("Elective III : Micro-Hydro Power")) {
-                    intent = new Intent(context, EngineeringPhysics.class);
+                    intent = new Intent(context, ElectiveIIIMicroHydroPower.class);
                     intent.putExtra("topic_name", topic.getTopicName());
                 }
                 if (topic.getTopicName().equals("Elective III : Wind Energy Conversion System")) {
