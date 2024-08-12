@@ -13,6 +13,9 @@
         android:theme="@style/Theme.IoEAllSubjectNotes"
         tools:targetApi="31">
         <activity
+            android:name=".activities.MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.FullViewPowerElectronics"
             android:exported="false" />
         <activity
@@ -370,8 +373,9 @@
             android:name=".activities.FullViewEngineeringDrawingI"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity" android:label="Electrical Engineering (BEL)"
-            android:exported="true">
+            android:name=".activities.MainActivity2"
+            android:exported="true"
+            android:label="Electrical Engineering (BEL)">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

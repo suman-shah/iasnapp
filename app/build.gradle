@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.project75.ioeallsubjectnotes'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.project75.ioeallsubjectnotes"
         minSdk 24
-        targetSdk 35
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -39,6 +39,7 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     implementation libs.android.pdf.viewer
+    implementation(libs.flexbox)
 
 
 }
