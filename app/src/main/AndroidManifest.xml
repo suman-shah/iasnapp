@@ -13,6 +13,324 @@
         android:theme="@style/Theme.IoEAllSubjectNotes"
         tools:targetApi="31">
         <activity
+            android:name=".activities.FullViewPowerElectronics"
+            android:exported="false" />
+        <activity
+            android:name=".model.PowerElectronics"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewAppliedMechanics"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewBasicElectricalEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringMathematicsI"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewComputerProgramming"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringMathematicsII"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringDrawingII"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewBasicElectronicsEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringChemistry"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewFundamentalofThermodynamicsHeatTransfer"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewWorkshopTechnology"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringMathematicsIII"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewObjectOrientedProgramming"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectricCircuitTheory"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectronicsDevicesandCircuit"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewDigitalLogic"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectricalEngineeringMaterial"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectromagnetic"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewNumericalMethod"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewAppliedMathematics"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewInstrumentationI"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewMicroprocessor"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewPowerSystemAnalysisI"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectricalMachinesI"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectricMachinesII"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectricMachineDesign"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewPowerSystemAnalysisII"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewCommunicationEnglish"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewProbabilityandStatistics"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewControlSystem"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewInstrumentationII"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringEconomics"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewHydroPower"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewSwitchgearProtection"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewDigitalControlSystem"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewIndustrialPowerDistributionANDIllumination"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewSignalAnalysis"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewProjectEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewTechnologyEnvironmentandSociety"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewOrganizationandManagement"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewUtilizationofElectricalEnergy"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewPowerPlantEquipment"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewProjectPartA"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectiveIEnergyElectricalSystemManagement"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectiveIReliabilityEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectiveIRuralElectrification"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewEngineeringProfessionalPractice"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewHighVoltageEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewPowerPlantDesign"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewTransmissionandDistributionSystemDesign"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewProjectPartB"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectiveIIAdvancedPowerSystemAnalysis"
+            android:exported="false" />
+        <activity
+            android:name=".model.AppliedMechanics"
+            android:exported="false" />
+        <activity
+            android:name=".model.BasicElectricalEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringMathematicsI"
+            android:exported="false" />
+        <activity
+            android:name=".model.ComputerProgramming"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringMathematicsII"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringDrawingII"
+            android:exported="false" />
+        <activity
+            android:name=".model.BasicElectronicsEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringChemistry"
+            android:exported="false" />
+        <activity
+            android:name=".model.FundamentalofThermodynamicsHeatTransfer"
+            android:exported="false" />
+        <activity
+            android:name=".model.WorkshopTechnology"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringMathematicsIII"
+            android:exported="false" />
+        <activity
+            android:name=".model.ObjectOrientedProgramming"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectricCircuitTheory"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectronicsDevicesandCircuit"
+            android:exported="false" />
+        <activity
+            android:name=".model.DigitalLogic"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectricalEngineeringMaterial"
+            android:exported="false" />
+        <activity
+            android:name=".model.Electromagnetic"
+            android:exported="false" />
+        <activity
+            android:name=".model.NumericalMethod"
+            android:exported="false" />
+        <activity
+            android:name=".model.AppliedMathematics"
+            android:exported="false" />
+        <activity
+            android:name=".model.InstrumentationI"
+            android:exported="false" />
+        <activity
+            android:name=".model.Microprocessor"
+            android:exported="false" />
+        <activity
+            android:name=".model.PowerSystemAnalysisI"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectricalMachinesI"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectricMachinesII"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectricMachineDesign"
+            android:exported="false" />
+        <activity
+            android:name=".model.PowerSystemAnalysisII"
+            android:exported="false" />
+        <activity
+            android:name=".model.CommunicationEnglish"
+            android:exported="false" />
+        <activity
+            android:name=".model.ProbabilityandStatistics"
+            android:exported="false" />
+        <activity
+            android:name=".model.ControlSystem"
+            android:exported="false" />
+        <activity
+            android:name=".model.InstrumentationII"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringEconomics"
+            android:exported="false" />
+        <activity
+            android:name=".model.HydroPower"
+            android:exported="false" />
+        <activity
+            android:name=".model.SwitchgearANDProtection"
+            android:exported="false" />
+        <activity
+            android:name=".model.DigitalControlSystem"
+            android:exported="false" />
+        <activity
+            android:name=".model.IndustrialPowerDistributionANDIllumination"
+            android:exported="false" />
+        <activity
+            android:name=".model.SignalAnalysis"
+            android:exported="false" />
+        <activity
+            android:name=".model.ProjectEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".model.TechnologyEnvironmentandSociety"
+            android:exported="false" />
+        <activity
+            android:name=".model.OrganizationandManagement"
+            android:exported="false" />
+        <activity
+            android:name=".model.UtilizationofElectricalEnergy"
+            android:exported="false" />
+        <activity
+            android:name=".model.PowerPlantEquipment"
+            android:exported="false" />
+        <activity
+            android:name=".model.ProjectPartA"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIEnergyElectricalSystemManagement"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIReliabilityEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIRuralElectrification"
+            android:exported="false" />
+        <activity
+            android:name=".model.EngineeringProfessionalPractice"
+            android:exported="false" />
+        <activity
+            android:name=".model.HighVoltageEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".model.PowerPlantDesign"
+            android:exported="false" />
+        <activity
+            android:name=".model.TransmissionandDistributionSystemDesign"
+            android:exported="false" />
+        <activity
+            android:name=".model.ProjectPartB"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIIAdvancedPowerSystemAnalysis"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FullViewElectiveIIAppliedPhotovoltaic"
+            android:exported="false" />
+        <activity
+            android:name=".model.ElectiveIIAppliedPhotovoltaic"
+            android:exported="false" />
+        <activity
             android:name=".model.ElectiveIIIArtificialNeuralNetwork"
             android:exported="false" />
         <activity

@@ -238,4 +238,8 @@
         <item>Microprocessor Note 1</item>
     </string-array>
 
+    <string-array name="Stories_name_PowerElectronics">
+        <item>PowerElectronics Note 1</item>
+    </string-array>
+
 </resources>
