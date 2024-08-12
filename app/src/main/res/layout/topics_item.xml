@@ -26,7 +26,7 @@
             android:layout_gravity="center_vertical"
             android:text="Topic"
             android:textColor="@color/aloe"
-            android:textSize="14dp"
+            android:textSize="20sp"
             android:textStyle="normal" />
 
 

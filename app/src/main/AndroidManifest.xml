@@ -370,7 +370,7 @@
             android:name=".activities.FullViewEngineeringDrawingI"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.MainActivity" android:label="Electrical Engineering (BEL)"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
