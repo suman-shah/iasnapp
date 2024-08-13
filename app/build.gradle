@@ -40,6 +40,8 @@ dependencies {
     androidTestImplementation libs.espresso.core
     implementation libs.android.pdf.viewer
     implementation(libs.flexbox)
+    implementation libs.core
+    implementation libs.chromecast.sender
 
 
 }

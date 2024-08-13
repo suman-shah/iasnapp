@@ -236,12 +236,12 @@
     <!-- Social Media Handles -->
     <LinearLayout
         android:id="@+id/social_media"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/followUsText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -273,16 +273,39 @@
             android:background="?android:selectableItemBackgroundBorderless"
             android:src="@drawable/twitter"
             android:contentDescription="Twitter" />
+        <ImageButton
+            android:id="@+id/socialyoutubeButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:contentDescription="Youtube"
+            android:scaleType="fitCenter"
+            android:src="@drawable/youtube" />
+
     </LinearLayout>
+    <TextView
+        android:id="@+id/followUsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Follow us on"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"/>
 
     <ImageView
         android:id="@+id/imageView"
-        android:paddingTop="20dp"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:paddingTop="20dp"
         app:layout_constraintEnd_toEndOf="@id/top_view"
         app:layout_constraintStart_toStartOf="@id/top_view"
         app:srcCompat="@drawable/iasn_logo"
-        tools:layout_editor_absoluteY="4dp" />
+        tools:layout_editor_absoluteY="4dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
