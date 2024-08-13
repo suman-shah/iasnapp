@@ -28,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <!-- Grid of ImageButtons with Labels -->
     <GridLayout
         android:id="@+id/grid"
@@ -47,9 +48,13 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:background="@drawable/rounded_corner_background"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
             <ImageButton
@@ -59,7 +64,7 @@
                 android:src="@drawable/syllabus_icon"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"
-                android:elevation="4dp"/>
+                android:elevation="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,6 +82,10 @@
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:background="@drawable/rounded_corner_background"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
             <ImageButton
@@ -101,9 +110,13 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:background="@drawable/rounded_corner_background"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
             <ImageButton
@@ -131,6 +144,10 @@
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:background="@drawable/rounded_corner_background"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
             <ImageButton
@@ -155,9 +172,13 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:background="@drawable/rounded_corner_background"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
             <ImageButton
@@ -185,6 +206,10 @@
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:background="@drawable/rounded_corner_background"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
             <ImageButton
@@ -205,59 +230,6 @@
                 android:layout_marginTop="8dp"/>
         </LinearLayout>
 
-        <!-- Assignments -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/assignments_button"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/assignments_icon"
-                android:scaleType="fitCenter"
-                android:background="@android:color/transparent"
-                android:elevation="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Assignments"
-                android:textColor="@android:color/black"
-                android:gravity="center"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-
-        <!-- Practical Reports -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/assignments_button"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/assignments_icon"
-                android:scaleType="fitCenter"
-                android:background="@android:color/transparent"
-                android:elevation="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Assignments"
-                android:textColor="@android:color/black"
-                android:gravity="center"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
 
 </GridLayout>
 
@@ -302,5 +274,15 @@
             android:src="@drawable/twitter"
             android:contentDescription="Twitter" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:paddingTop="20dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="@id/top_view"
+        app:layout_constraintStart_toStartOf="@id/top_view"
+        app:srcCompat="@drawable/iasn_logo"
+        tools:layout_editor_absoluteY="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
