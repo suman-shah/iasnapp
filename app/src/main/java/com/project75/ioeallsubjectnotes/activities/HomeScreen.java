@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.project75.ioeallsubjectnotes.R;
 
-public class MainActivity2 extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity {
     private ImageButton notebutton;
     private ImageButton YouTubeButton;
     private ImageButton question_papers_button;
@@ -33,7 +29,7 @@ public class MainActivity2 extends AppCompatActivity {
         notebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,MainActivity.class);
+                Intent intent=new Intent(HomeScreen.this,MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
         YouTubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,IasnYouTubeChannel.class);
+                Intent intent=new Intent(HomeScreen.this, MainActivityYouTubeChannel.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +46,7 @@ public class MainActivity2 extends AppCompatActivity {
         question_papers_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,MainActivityQuestionPaper.class);
+                Intent intent=new Intent(HomeScreen.this,MainActivityQuestionPaper.class);
                 startActivity(intent);
             }
         });
@@ -59,16 +55,16 @@ public class MainActivity2 extends AppCompatActivity {
         syllabus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,MainActivitySyllabus.class);
+                Intent intent=new Intent(HomeScreen.this,MainActivitySyllabus.class);
                 startActivity(intent);
             }
         });
 
-        formulas_button=findViewById(R.id.formulas_button);
+        formulas_button=findViewById(R.id.passeddivision_button);
         formulas_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,MainActivityFormula.class);
+                Intent intent=new Intent(HomeScreen.this,MainActivityFormula.class);
                 startActivity(intent);
             }
         });
@@ -77,7 +73,25 @@ public class MainActivity2 extends AppCompatActivity {
         notifications_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity2.this,MainActivityNotifications.class);
+                Intent intent=new Intent(HomeScreen.this,MainActivityNotifications.class);
+                startActivity(intent);
+            }
+        });
+
+        notifications_button=findViewById(R.id.IOECalander_button);
+        notifications_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeScreen.this,MainActivityIOECalander.class);
+                startActivity(intent);
+            }
+        });
+
+        notifications_button=findViewById(R.id.job_button);
+        notifications_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeScreen.this,MainActivityJobPortal.class);
                 startActivity(intent);
             }
         });

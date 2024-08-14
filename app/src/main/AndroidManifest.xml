@@ -15,6 +15,12 @@
         android:theme="@style/Theme.IoEAllSubjectNotes"
         tools:targetApi="31">
         <activity
+            android:name=".activities.MainActivityIOECalander"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivityJobPortal"
+            android:exported="false" />
+        <activity
             android:name=".activities.MainActivityNotifications"
             android:exported="false" />
         <activity
@@ -27,7 +33,7 @@
             android:name=".activities.MainActivityQuestionPaper"
             android:exported="false" />
         <activity
-            android:name=".activities.IasnYouTubeChannel"
+            android:name=".activities.MainActivityYouTubeChannel"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
@@ -390,7 +396,7 @@
             android:name=".activities.FullViewEngineeringDrawingI"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity2"
+            android:name=".activities.HomeScreen"
             android:exported="true"
             android:label="Electrical Engineering (BEL)">
             <intent-filter>
