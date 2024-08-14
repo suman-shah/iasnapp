@@ -5,10 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
     tools:context=".activities.FullViewProbabilityandStatistics">
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfView_ProbabilityandStatistics"
+    <!-- WebView -->
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

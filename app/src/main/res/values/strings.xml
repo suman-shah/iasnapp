@@ -1,6 +1,66 @@
 <resources>
     <string name="app_name">IoE All Subject Notes</string>
     <string name="chapter">Chapter</string>
+    <string name="EngineeringDrawingIFolder">https://drive.google.com/drive/folders/1U_dy0KuxYdn0tee2x5wfez5kZG8pL5e2?usp=drive_link</string>
+    <string name="AppliedMechanicsFolder">https://drive.google.com/drive/folders/1Lsjy8Bj53itwX5bmoQBPZ1i8TqNx-x9f?usp=drive_link </string>
+    <string name="BasicElectricalEngineeringFolder"> https://drive.google.com/drive/folders/18oUbTnJiIx7sppcPmhv4Gu1ZGGoJUz0Z?usp=drive_link</string>
+    <string name="ComputerProgrammingFolder">https://drive.google.com/drive/folders/1bMvQpio4yqZOPYny9KhZeeaAxPjZNKpk?usp=drive_link </string>
+    <string name="EngineeringMathematicsIFolder">https://drive.google.com/drive/folders/1it1AwkSbsFpmQWXntYKf2KdnW2m1NOVa?usp=drive_link </string>
+    <string name="EngineeringPhysicsFolder">https://drive.google.com/drive/folders/1c6-FntkgYP1213E3tzkw1q02rm4cznx7?usp=drive_link </string>
+    <string name="BasicElectronicsEngineeringFolder">https://drive.google.com/drive/folders/1lMWhvlNkJeUhBrfhU8RgRXdMwzkkZhQi?usp=drive_link </string>
+    <string name="EngineeringChemistryFolder">https://drive.google.com/drive/folders/1JxMolo31PE3nGU_nvFZcuQ8_-RDLd0N_?usp=drive_link </string>
+    <string name="EngineeringDrawingIIFolder">https://drive.google.com/drive/folders/1KKBGtMv-2faFwu4mPbWOG4dLvaz_hlJq?usp=drive_link </string>
+    <string name="EngineeringMathematicsIIFolder">https://drive.google.com/drive/folders/1fg53CZvCJCz8vZmej8jilBSYuTl93rAF?usp=drive_link </string>
+    <string name="FundamentalofThermodynamicsHeatTransferFolder">https://drive.google.com/drive/folders/1hBvJs-1HLXuXHwq8LSk8dPHXQPIJkzgB?usp=drive_link </string>
+    <string name="WorkshopTechnologyFolder">https://drive.google.com/drive/folders/1HQfiifAtier7wd1-cOmOMKYN4gFQyWk-?usp=drive_link </string>
+    <string name="DigitalLogicFolder">https://drive.google.com/drive/folders/1CG99g2gv41z0A0_QlE8DX1W6hDe5S589?usp=drive_link </string>
+    <string name="ElectricCircuitTheoryFolder"> https://drive.google.com/drive/folders/15TpZS_ihoVzC3uzcm6z7LYcno9XvzEPE?usp=drive_link</string>
+    <string name="ElectricalEngineeringMaterialFolder">https://drive.google.com/drive/folders/1TELKG4HdHtWNKy03_InrKQwJhQcGdjK6?usp=drive_link </string>
+    <string name="ElectromagneticFolder"> https://drive.google.com/drive/folders/1dfes4aDTqooYubXB49CnYK8CuZQAGtyX?usp=drive_link</string>
+    <string name="ElectronicsDevicesandCircuit">https://drive.google.com/drive/folders/1FirTDih0H_sVWzebxJzuDCNvf2VoKlBO?usp=drive_link </string>
+    <string name="EngineeringMathematicsIIIFolder">https://drive.google.com/drive/folders/1sGZOk20dteA7TobAi0D8AxzV7hC-2e0w?usp=drive_link </string>
+    <string name="ObjectOrientedProgrammingFolder">https://drive.google.com/drive/folders/1P7-yZ4uNC_uBt0ATDVDYnvcd9zsUg4wo?usp=drive_link </string>
+    <string name="AppliedMathematicsFolder">https://drive.google.com/drive/folders/1_LdQim0szcxUpc3PbWXhD1bKirV352sl?usp=drive_link </string>
+    <string name="ElectricalMachinesIFolder">https://drive.google.com/drive/folders/1uO0KL3N8AlCFp4ChvC4O8RB0lgqejur2?usp=drive_link </string>
+    <string name="InstrumentationIFolder">https://drive.google.com/drive/folders/18EgKAWPAoIAnjwlx0sfoZJG8mW2A4kNC?usp=drive_link </string>
+    <string name="MicroprocessorFolder">https://drive.google.com/drive/folders/11Zgned8KU9qb2ykbdPTwE9ily8iSoPUa?usp=drive_link </string>
+    <string name="NumericalMethodFolder">https://drive.google.com/drive/folders/11sifEhxAu-DQZk4CFoufTVCiDTFwkhMT?usp=drive_link </string>
+    <string name="PowerSystemAnalysisIFolder">https://drive.google.com/drive/folders/1c42tTTm1WcCh52N3vk-v5ey61NG5vC1M?usp=drive_link </string>
+    <string name="CommunicationEnglishFolder">https://drive.google.com/drive/folders/19VbuBO2xo3xJ8g6i1uMkTORehdn3ArhM?usp=drive_link </string>
+    <string name="ControlSystemFolder"> https://drive.google.com/drive/folders/1C5OGRJaHgXVtHzEyauxTzqC4IWJKk4U8?usp=drive_link</string>
+    <string name="ElectricMachineDesignFolder"> https://drive.google.com/drive/folders/1LCtoHyBatEv0QldLKZfFqOm9571lJqtX?usp=drive_link</string>
+    <string name="ElectricMachinesIIFolder">https://drive.google.com/drive/folders/1EoEEjA_ctWMmcJ61h-3c-F1efJXcyM8O?usp=drive_link </string>
+    <string name="InstrumentationIIFolder">https://drive.google.com/drive/folders/1zsZZXbWxEFPZHsVdMLvgdUtXtSxJtmxA?usp=drive_link </string>
+    <string name="PowerSystemAnalysisIIFolder">https://drive.google.com/drive/folders/1WPqmkmYCvl8WJVUFYswqFkX0ouG5GfwT?usp=drive_link</string>
+    <string name="ProbabilityandStatisticsFolder">https://drive.google.com/drive/folders/1Vz5Jgrr9ZqRlsRvrbfJ-JeRdo4ShNzPz?usp=drive_link</string>
+    <string name="DigitalControlSystemFolder">https://drive.google.com/drive/folders/1p1I8U-x8Eib4oEgdUsC_d-BmqKkXABnt?usp=drive_link </string>
+    <string name="EngineeringEconomicsFolder">https://drive.google.com/drive/folders/1esF49sx9yFviQ0FcZNv0oq6wtJao3eTI?usp=drive_link</string>
+    <string name="HydroPowerFolder">https://drive.google.com/drive/folders/1dzOoQ7yMdxbGbk_PLP-bI4mDy_bvdLS5?usp=drive_link</string>
+    <string name="IndustrialPowerDistributionIlluminationFolder">https://drive.google.com/drive/folders/1r2MXvffiRi1-6CiRwwAKf840L0RhPh7_?usp=drive_link</string>
+    <string name="SignalAnalysisFolder">https://drive.google.com/drive/folders/1W0mmkBR-flCCm6jajF5vf0CsSOR4i5YA?usp=drive_link</string>
+    <string name="SwitchgearProtectionolder">https://drive.google.com/drive/folders/1N76pthQgfYtmoi14JdtkQ7LKF4_BFgSl?usp=drive_link </string>
+    <string name="ElectiveIEnergyElectricalSystemManagement">https://drive.google.com/drive/folders/1xfYdnCewujguIQ7xOpb4KDHeTXr6e6lq?usp=drive_link</string>
+    <string name="ElectiveIReliabilityEngineeringFolder"> https://drive.google.com/drive/folders/1OB9W2bIi66xXDYKQskExQ2w5fnKCYlLk?usp=drive_link</string>
+    <string name="ElectiveIRuralElectrificationFolder">https://drive.google.com/drive/folders/1XaNVRYikJVha7VrS2cdv_iblbiOK2FrG?usp=drive_link</string>
+    <string name="OrganizationandManagementFolder">https://drive.google.com/drive/folders/1wwbeGDsqss9ZVWT9LDvaWvbl5hgud4B0?usp=drive_link </string>
+    <string name="PowerElectronicsFolder">https://drive.google.com/drive/folders/1POofo_g736bMYK95oDcyCkRvWUZjYkR9?usp=drive_link</string>
+    <string name="PowerPlantEquipmentFolder">https://drive.google.com/drive/folders/1IYdSY0RMk94sT9QMv4TT-pQGu-ockYEu?usp=drive_link </string>
+    <string name="ProjectPartAFolder">https://drive.google.com/drive/folders/1biDAGqLtXpm0paxnPczfFeOO686zsP9U?usp=drive_link </string>
+    <string name="ProjectEngineeringFolder">https://drive.google.com/drive/folders/1WCGH-ec33bn9nJnnTc1n4RBa-NhFZJ0M?usp=drive_link </string>
+    <string name="TechnologyEnvironmentandSocietyFolder">https://drive.google.com/drive/folders/1DkEcmBTcR3THJzJOrye8rq-PyAUx3xvc?usp=drive_link </string>
+    <string name="UtilizationofElectricalEnergyFolder">https://drive.google.com/drive/folders/1LbBATfTEGI0HbUJUnM8nkNUTLsDmfumP?usp=drive_link </string>
+    <string name="ElectiveIIAdvancedPowerSystemAnalysisFolder">https://drive.google.com/drive/folders/19PpZZhl58RPrz1N8z2EfqNVMhw3_lmTX?usp=drive_link </string>
+    <string name="ElectiveIIAppliedPhotovoltaicFolder">https://drive.google.com/drive/folders/1BNYmWVLU0fLbASz23cNCCKE7c1nm9rtU?usp=drive_link </string>
+    <string name="ElectiveIIBiomedicalInstrumentationFolder">https://drive.google.com/drive/folders/1YW9SDSklFpFe8-KD5rUE8TJodyaMsMEj?usp=drive_link </string>
+    <string name="ElectiveIIIArtificialNeuralNetworkFolder">https://drive.google.com/drive/folders/10gh7ifqQYg3uhyq5pmkO9rXbW4IZJXED?usp=drive_link </string>
+    <string name="ElectiveIIIMicroHydroPoweFolder">https://drive.google.com/drive/folders/1-u624X-oVX4iRhJwEUpMM5h-EvkllDrc?usp=drive_link </string>
+    <string name="ElectiveIIIWindEnergyConversionSystemFolder">https://drive.google.com/drive/folders/12PhvFLLYMYAdeUHfAo1A5JIB1afBvOXr?usp=drive_link </string>
+    <string name="EngineeringProfessionalPracticeFolder">https://drive.google.com/drive/folders/1In0TvEIL_4rxzh0sjdCDRWWSYDBV6ZPI?usp=drive_link </string>
+    <string name="HighVoltageEngineeringFolder">https://drive.google.com/drive/folders/1sEMJ4K2uwNgNJ00Y9s-FIARI3ySleUcw?usp=drive_link </string>
+    <string name="PowerPlantDesignFolder">https://drive.google.com/drive/folders/1uzFe3cGEFPz4pO7EC7TjohCbxmtJeL0K?usp=drive_link </string>
+    <string name="TransmissionandDistributionSystemDesignFolder">https://drive.google.com/drive/folders/1KHO-5zMU6z6HxeyVOKAqgnFe2A8rl6k5?usp=drive_link </string>
+    <string name="ProjectPartBFolder">https://drive.google.com/drive/folders/1gsNi5n_dwczU0xNLK-s30PlQ6nERjKR5?usp=sharing</string>
+
     <string-array name="Stories_name">
         <item>Drawing Note 1</item>
         <item>Drawing Note 2</item>

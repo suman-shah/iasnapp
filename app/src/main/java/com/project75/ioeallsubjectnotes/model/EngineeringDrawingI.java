@@ -1,6 +1,5 @@
 package com.project75.ioeallsubjectnotes.model;
 
-import android.adservices.topics.Topic;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,7 @@ import com.project75.ioeallsubjectnotes.activities.FullViewEngineeringDrawingI;
 
 public class EngineeringDrawingI extends AppCompatActivity {
     ListView listView;
-    Topic topic;
+    String[] pdfUrls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +25,7 @@ public class EngineeringDrawingI extends AppCompatActivity {
         setContentView(R.layout.activity_engineering_drawing_1);
 
         listView = findViewById(R.id.pdf_list_View);
+
         // Retrieve the topic name from the Intent
         String topicName = getIntent().getStringExtra("topic_name");
 
@@ -33,25 +33,32 @@ public class EngineeringDrawingI extends AppCompatActivity {
         TextView topicTextView = findViewById(R.id.subject_topic_name);
         topicTextView.setText(topicName);
 
-        String[] story_names = getResources().getStringArray(R.array.Stories_name);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, story_names);
+        // URLs of the PDFs
+        pdfUrls = new String[]{
+                "https://drive.google.com/drive/folders/1U_dy0KuxYdn0tee2x5wfez5kZG8pL5e2?usp=drive"
+
+                // Add more URLs here
+        };
+
+        // PDF titles (optional, can be fetched dynamically)
+        String[] pdfTitles = new String[]{
+                "PDF files"
+
+                // Corresponding titles for the PDFs
+
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pdfTitles);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Start the activity to view the PDF
                 Intent intent = new Intent(EngineeringDrawingI.this, FullViewEngineeringDrawingI.class);
-                intent.putExtra("key_position",position);
+                intent.putExtra("pdf_url", pdfUrls[position]);
                 startActivity(intent);
-
-
-
             }
-
         });
-
-
-
-
     }
 }
