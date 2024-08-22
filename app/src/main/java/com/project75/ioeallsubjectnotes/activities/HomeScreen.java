@@ -18,6 +18,7 @@ public class HomeScreen extends AppCompatActivity {
     private ImageButton syllabus_button;
     private ImageButton formulas_button;
     private ImageButton notifications_button;
+    private ImageButton Paint_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,14 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(HomeScreen.this,MainActivityJobPortal.class);
+                startActivity(intent);
+            }
+        });
+        Paint_button=findViewById(R.id.Paint_button);
+        Paint_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeScreen.this,MainActivityPaint.class);
                 startActivity(intent);
             }
         });

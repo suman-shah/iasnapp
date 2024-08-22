@@ -15,6 +15,13 @@
         android:theme="@style/Theme.IoEAllSubjectNotes"
         tools:targetApi="31">
         <activity
+            android:name=".activities.PaintView"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivityPaint"
+            android:exported="false" />
+
+        <activity
             android:name=".activities.MainActivityIOECalander"
             android:exported="false" />
         <activity

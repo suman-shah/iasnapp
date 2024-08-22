@@ -1,10 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivityFormula">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ioetu_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp">
+
+            <!-- Heading -->
+            <TextView
+                android:id="@+id/formula_heading"
+                android:fontFamily="sans-serif-medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Electrical Academic Calculator"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Instructions -->
+            <TextView
+                android:id="@+id/instructions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Enter your semester marks to calculate the final percentage and division:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/formula_heading" />
+
+            <!-- Semester Input Fields (using a chain) -->
+            <EditText
+                android:id="@+id/semester1_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 1 (out of 725)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/instructions" />
+
+            <EditText
+                android:id="@+id/semester2_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 2 (out of 650)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester1_marks" />
+
+            <EditText
+                android:id="@+id/semester3_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 3 (out of 875)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester2_marks" />
+
+            <EditText
+                android:id="@+id/semester4_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 4 (out of 750)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester3_marks" />
+
+            <EditText
+                android:id="@+id/semester5_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 5 (out of 800)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester4_marks" />
+
+            <EditText
+                android:id="@+id/semester6_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 6 (out of 725)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester5_marks" />
+
+            <EditText
+                android:id="@+id/semester7_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 7 (out of 800)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester6_marks" />
+
+            <EditText
+                android:id="@+id/semester8_marks"
+                style="@style/InputEditText"
+                android:hint="Marks for Semester 8 (out of 800)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester7_marks" />
+
+            <!-- Calculate Button -->
+            <Button
+                android:id="@+id/calculate_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Calculate Percentage and Division"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester8_marks" />
+
+            <TableLayout
+                android:id="@+id/result_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/calculate_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Header Row -->
+            <TableRow>
+                <TextView
+                    android:text="Semester"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+                <TextView android:text="1" android:padding="8dp" />
+                <TextView android:text="2" android:padding="8dp" />
+                <TextView android:text="3" android:padding="8dp" />
+                <TextView android:text="4" android:padding="8dp" />
+                <TextView android:text="5" android:padding="8dp" />
+                <TextView android:text="6" android:padding="8dp" />
+                <TextView android:text="7" android:padding="8dp" />
+                <TextView android:text="8" android:padding="8dp" />
+            </TableRow>
+
+            <!-- Total Marks Row -->
+            <TableRow>
+                <TextView
+                    android:text="Total Mark"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/total_mark_sem1"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem2"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem3"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem4"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem5"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem6"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem7"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/total_mark_sem8"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Percentage Row -->
+            <TableRow>
+                <TextView
+                    android:text="Percentage"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/percentage_sem1"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem2"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem3"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem4"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem5"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem6"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem7"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/percentage_sem8"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Aggregate Row -->
+            <TableRow>
+                <TextView
+                    android:text="Aggregate"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/aggregate_percentage"
+                    android:padding="8dp"
+                    android:layout_span="8" />
+            </TableRow>
+
+            <!-- Division Row -->
+            <TableRow>
+                <TextView
+                    android:text="Division"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/division"
+                    android:padding="8dp"
+                    android:layout_span="8" />
+            </TableRow>
+
+        </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basic Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="aloe">#60A044</color>
-    <color name="hotpink">#FF69B4</color>
+
+    <!-- Primary Theme Colors -->
+    <color name="colorPrimary">#60A044</color> <!-- Aloe -->
+    <color name="colorPrimaryDark">#4B7A32</color> <!-- Darker shade of Aloe -->
+    <color name="colorAccent">#FF69B4</color> <!-- Hot Pink -->
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#FF000000</color> <!-- Black -->
+    <color name="textOnPrimary">#FFFFFFFF</color> <!-- White for text on primary backgrounds -->
+    <color name="hintColor">#88000000</color> <!-- Semi-transparent black for hints -->
+
+    <!-- Background Colors -->
+    <color name="backgroundColor">#FFF5F5F5</color> <!-- Light gray for background -->
+    <color name="searchBorder">#FF69B4</color> <!-- Same hot pink for search border -->
+
+    <!-- Additional Colors -->
+    <color name="buttonPressed">#FF5C8F</color> <!-- Darker shade of hot pink for button pressed state -->
+    <color name="supportBackground">#FF69B4</color> <!-- Background for support button -->
+    <color name="iconColor">#FF60A044</color> <!-- Aloe color for icons -->
+    // games
+
+
+    <color name="primary_text">#212121</color>
+    <color name="button_color">#FF5722</color>
+    <color name="background_color">#FFFFFF</color>
+
 </resources>
