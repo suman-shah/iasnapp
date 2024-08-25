@@ -52,6 +52,7 @@ public class HomeScreen extends AppCompatActivity {
         setButtonClickListener(findViewById(R.id.Paint_button), MainActivityPaint.class, R.drawable.button_pressed, R.drawable.rattle);
         setButtonClickListener(findViewById(R.id.scientific_calculator), MainActivityScientificCalculator.class, R.drawable.button_pressed, R.drawable.polo);
         setButtonClickListener(findViewById(R.id.pdf_scanner), MainActivityPdfScan.class, R.drawable.button_pressed, R.drawable.birdie);
+            setButtonClickListener(findViewById(R.id.sendEmai), SendEmailActivity.class, R.drawable.button_pressed, R.drawable.support_icon);
 
 
         // <!-- Social Media Handles -->
