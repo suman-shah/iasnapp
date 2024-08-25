@@ -1,4 +1,4 @@
-package com.project75.ioeallsubjectnotes.adater;
+package com.project75.ioeallsubjectnotes.adapters;
 
 import android.content.Context;
 import android.content.Intent;

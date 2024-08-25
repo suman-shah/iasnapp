@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.project75.ioeallsubjectnotes.R;
-import com.project75.ioeallsubjectnotes.adater.CustomAdapter;
+import com.project75.ioeallsubjectnotes.adapters.CustomAdapter;
 import com.project75.ioeallsubjectnotes.model.Chapter;
 import com.project75.ioeallsubjectnotes.model.Topics;
 
@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
         topicsList=new ArrayList<>();
 // First Semester
         topicsList.add(new Topics("Engineering Drawing I",""));
-        topicsList.add(new Topics("Engineering Physics","t12"));
-        topicsList.add(new Topics("Applied Mechanics","t13"));
-        topicsList.add(new Topics("Basic Electrical Engineering","t14"));
-        topicsList.add(new Topics("Engineering Mathematics I","t14"));
-        topicsList.add(new Topics("Computer Programming","t14"));
+        topicsList.add(new Topics("Engineering Physics",""));
+        topicsList.add(new Topics("Applied Mechanics",""));
+        topicsList.add(new Topics("Basic Electrical Engineering",""));
+        topicsList.add(new Topics("Engineering Mathematics I",""));
+        topicsList.add(new Topics("Computer Programming",""));
         chapterList.add(new Chapter("First Semester",topicsList));
 // Second Semester
         topicsList=new ArrayList<>();
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         chapterList.add(new Chapter("Second Semester",topicsList));
 // Third Semester
         topicsList=new ArrayList<>();
-        topicsList.add(new Topics("Engineering Mathematics III","t11"));
+        topicsList.add(new Topics("Engineering Mathematics III",""));
         topicsList.add(new Topics("Object Oriented Programming",""));
         topicsList.add(new Topics("Electric Circuit Theory",""));
         topicsList.add(new Topics("Electronics Devices and Circuit",""));

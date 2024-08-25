@@ -34,6 +34,7 @@ dependencies {
     implementation libs.activity
     implementation libs.constraintlayout
     implementation libs.cardview
+
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
@@ -41,6 +42,15 @@ dependencies {
     implementation(libs.flexbox)
     implementation libs.core
     implementation libs.chromecast.sender
-
+    implementation libs.com.udojava.evalex
+    implementation libs.camera.core
+    implementation libs.camera.camera2
+    implementation libs.camera.lifecycle
+    implementation libs.camera.view
+    implementation libs.itext7.core
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext.junit.v113
+    androidTestImplementation libs.androidx.test.espresso.espresso.core.v340.x2
+    implementation libs.androidx.recyclerview.v121
 
 }

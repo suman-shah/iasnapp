@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="InputEditText">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:inputType">number</item>
-        <item name="android:maxLines">1</item>
-    </style>
+
     <!-- Base Application Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here -->
@@ -17,7 +11,13 @@
         <item name="android:textColorPrimary">@color/textPrimary</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
     </style>
-
+    <style name="InputEditText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLines">1</item>
+    </style>
     <!-- Greeting Section Text Style -->
     <style name="GreetingText">
         <item name="android:textSize">18sp</item>
@@ -101,4 +101,62 @@
         <item name="android:layout_marginTop">16dp</item>
     </style>
 
+    <!-- In your button style .xml -->
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:state_pressed">@color/button_pressed</item>
+        <item name="android:state_enabled">@color/button_default</item>
+    </style>
+
+
+    <!-- Calculator Display Style -->
+    <style name="CalculatorDisplay">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item><item name="android:layout_margin">16dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">#333333</item>
+        <item name="android:gravity">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- Base theme for Calculator buttons --><style name="CalculatorButton">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">70dp</item>
+    <item name="android:layout_columnWeight">1</item>
+    <item name="android:layout_margin">4dp</item>
+    <item name="android:padding">16dp</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:gravity">center</item>
+    <item name="android:background">#424242</item>
+</style>
+
+    <!-- Number button style -->
+    <style name="CalculatorButton.Number" parent="CalculatorButton">
+        <item name="android:background">#FF9800</item>
+    </style>
+
+    <!-- Operation button style (+, -, /, *) -->
+    <style name="CalculatorButton.Operation" parent="CalculatorButton">
+        <item name="android:background">#03A9F4</item>
+    </style>
+
+    <!-- Function button style (sin, cos, etc.) -->
+    <style
+        name="CalculatorButton.Function"
+        parent="CalculatorButton">
+        <item name="android:background">#8BC34A</item>
+    </style>
+
+    <!-- Equals button style -->
+    <style name="CalculatorButton.Equals" parent="CalculatorButton">
+        <item name="android:background">#F44336</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <!-- Clear button style -->
+    <style name="CalculatorButton.Clear" parent="CalculatorButton">
+        <item name="android:background">#9E9E9E</item>
+    </style>
 </resources>

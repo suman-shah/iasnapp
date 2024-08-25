@@ -22,11 +22,26 @@
     <color name="buttonPressed">#FF5C8F</color> <!-- Darker shade of hot pink for button pressed state -->
     <color name="supportBackground">#FF69B4</color> <!-- Background for support button -->
     <color name="iconColor">#FF60A044</color> <!-- Aloe color for icons -->
-    // games
+    // Button
 
+    <!-- Define the color for the ripple effect -->
+    <color name="rippleColor">#FF6200EE</color> <!-- Replace with your desired ripple color -->
+
+    <!-- Define the color for the pressed state -->
+    <color name="pressedColor">#4CAF50</color> <!-- Replace with your desired pressed color -->
+    <!-- Default color for the button when not pressed -->
+    <color name="button_default">#FF6200EE</color> <!-- Replace with your desired default color -->
+
+
+    <!-- Color for the button when pressed -->
+    <color name="button_pressed">#9C27B0</color> <!-- Replace with your desired pressed color -->
 
     <color name="primary_text">#212121</color>
     <color name="button_color">#FF5722</color>
     <color name="background_color">#FFFFFF</color>
+
+    <color name="checkmark_background">#FF4081</color> <!-- Background color -->
+    <color name="checkmark_color">#FFFFFF</color> <!-- Check mark color -->
+
 
 </resources>

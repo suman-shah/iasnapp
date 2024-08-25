@@ -4,108 +4,57 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.project75.ioeallsubjectnotes.R;
 
 public class HomeScreen extends AppCompatActivity {
-    private ImageButton notebutton;
-    private ImageButton YouTubeButton;
-    private ImageButton question_papers_button;
-    private ImageButton syllabus_button;
-    private ImageButton formulas_button;
-    private ImageButton notifications_button;
-    private ImageButton Paint_button;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main2);
+        //search
+        private EditText searchEditText;
+        private ImageView searchIcon;
 
-        notebutton=findViewById(R.id.notes_button);
-        notebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        YouTubeButton=findViewById(R.id.youtube_button);
-        YouTubeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this, MainActivityYouTubeChannel.class);
-                startActivity(intent);
-            }
-        });
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            EdgeToEdge.enable(this);
+            setContentView(R.layout.activity_main2);
 
-        question_papers_button=findViewById(R.id.question_papers_button);
-        question_papers_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivityQuestionPaper.class);
-                startActivity(intent);
-            }
-        });
+            // Initialize views
+            searchEditText = findViewById(R.id.search_edit_text);
+            searchIcon = findViewById(R.id.search_icon);
 
-        syllabus_button=findViewById(R.id.syllabus_button);
-        syllabus_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivitySyllabus.class);
-                startActivity(intent);
-            }
-        });
+            // Set up search icon click listener
+            searchIcon.setOnClickListener(view -> {
+                String query = searchEditText.getText().toString().trim();
+                if (!query.isEmpty()) {
+                    Intent intent = new Intent(HomeScreen.this, SearchActivity.class);
+                    intent.putExtra("SEARCH_QUERY", query); // Pass the search query to SearchActivity
+                    startActivity(intent);
+                }
+            });
 
-        formulas_button=findViewById(R.id.passeddivision_button);
-        formulas_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivityFormula.class);
-                startActivity(intent);
-            }
-        });
+        // Set up button click listeners using the new method
+        setButtonClickListener(findViewById(R.id.notes_button), MainActivity.class, R.drawable.button_pressed,R.drawable.notes_icon);
+        setButtonClickListener(findViewById(R.id.youtube_button), MainActivityYouTubeChannel.class, R.drawable.button_pressed, R.drawable.youtube_icon);
+        setButtonClickListener(findViewById(R.id.question_papers_button), MainActivityQuestionPaper.class, R.drawable.button_pressed, R.drawable.question_papers_icon);
+        setButtonClickListener(findViewById(R.id.syllabus_button), MainActivitySyllabus.class, R.drawable.button_pressed, R.drawable.syllabus_icon);
+        setButtonClickListener(findViewById(R.id.passeddivision_button), MainActivityFormula.class, R.drawable.button_pressed, R.drawable.formulas_icon);
+        setButtonClickListener(findViewById(R.id.notifications_button), MainActivityNotifications.class, R.drawable.button_pressed, R.drawable.exam_portal);
+        setButtonClickListener(findViewById(R.id.IOECalander_button), MainActivityIOECalander.class, R.drawable.button_pressed, R.drawable.timetable);
+        setButtonClickListener(findViewById(R.id.job_button), MainActivityJobPortal.class, R.drawable.button_pressed, R.drawable.job);
+        setButtonClickListener(findViewById(R.id.Paint_button), MainActivityPaint.class, R.drawable.button_pressed, R.drawable.rattle);
+        setButtonClickListener(findViewById(R.id.scientific_calculator), MainActivityScientificCalculator.class, R.drawable.button_pressed, R.drawable.polo);
+        setButtonClickListener(findViewById(R.id.pdf_scanner), MainActivityPdfScan.class, R.drawable.button_pressed, R.drawable.birdie);
 
-        notifications_button=findViewById(R.id.notifications_button);
-        notifications_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivityNotifications.class);
-                startActivity(intent);
-            }
-        });
 
-        notifications_button=findViewById(R.id.IOECalander_button);
-        notifications_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivityIOECalander.class);
-                startActivity(intent);
-            }
-        });
-
-        notifications_button=findViewById(R.id.job_button);
-        notifications_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivityJobPortal.class);
-                startActivity(intent);
-            }
-        });
-        Paint_button=findViewById(R.id.Paint_button);
-        Paint_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(HomeScreen.this,MainActivityPaint.class);
-                startActivity(intent);
-            }
-        });
         // <!-- Social Media Handles -->
-
         ImageButton instagramButton = findViewById(R.id.instagramButton);
         ImageButton facebookButton = findViewById(R.id.facebookButton);
         ImageButton twitterButton = findViewById(R.id.twitterButton);
@@ -117,11 +66,22 @@ public class HomeScreen extends AppCompatActivity {
         socialyoutubeButton.setOnClickListener(view -> openSocialMediaLink("https://www.youtube.com/@ioeallsubjectnote"));
     }
 
+    private void setButtonClickListener(ImageButton button, Class<?> targetActivity, int pressedDrawableId, int defaultDrawableId) {
+        button.setOnClickListener(view -> {
+            // Change the button image to pressed state
+            button.setImageDrawable(ContextCompat.getDrawable(HomeScreen.this, pressedDrawableId));
+
+            // Navigate to the target activity
+            Intent intent = new Intent(HomeScreen.this, targetActivity);
+            startActivity(intent);
+
+            // Reset the button image to the default state after a short delay
+            button.postDelayed(() -> button.setImageDrawable(ContextCompat.getDrawable(HomeScreen.this, defaultDrawableId)), 200); // 200ms delay
+        });
+    }
+
     private void openSocialMediaLink(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
-
-
-
     }
 }
