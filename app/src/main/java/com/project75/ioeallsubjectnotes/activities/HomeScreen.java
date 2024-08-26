@@ -1,6 +1,7 @@
 package com.project75.ioeallsubjectnotes.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -35,6 +36,9 @@ public class HomeScreen extends AppCompatActivity {
             //greeting and date
             greetingTextView = findViewById(R.id.greetingTextView);
             webView = findViewById(R.id.webView);
+            WebView myWebView = findViewById(R.id.webView);
+            myWebView.setBackgroundColor(Color.TRANSPARENT);
+            myWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
             // Setup WebView
             webView.getSettings().setJavaScriptEnabled(true);
