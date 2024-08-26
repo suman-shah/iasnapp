@@ -70,7 +70,7 @@
                     </Button>
                     <Button
                         android:id="@+id/bc"
-                        android:text="C"
+                        android:text="⌫"
                         android:textSize="30sp"
                         android:background="#000"
                         android:textColor="#ffa500"

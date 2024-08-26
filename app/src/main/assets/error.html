@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Error</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .gif-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .retry-button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .retry-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="file:///android_asset/no_internet.gif" alt="No Internet Connection" class="gif-image">
+    <h1>Oops!</h1>
+    <p>It looks like you're offline.</p>
+    <p>But don't worry! Take a deep breath, and try again.</p>
+    <button class="retry-button" onclick="location.reload();">Try Again</button>
+</div>
+</body>
+</html>
