@@ -20,6 +20,7 @@
 
     <!-- Top View -->
     <!-- Top Section CardView -->
+
     <View
         android:id="@+id/top_view"
         android:layout_width="match_parent"
@@ -164,11 +165,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Search for..."
-                android:padding="10dp"
                 android:background="@drawable/rounded_corner_background"
+                android:hint="Search for..."
                 android:imeOptions="actionSearch"
-                android:inputType="text" />
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp" />
 
             <ImageView
                 android:id="@+id/search_icon"
@@ -498,13 +500,13 @@
         android:paddingTop="20dp"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/greeting_text"
+        app:layout_constraintStart_toEndOf="@+id/greetingTextView"
         app:srcCompat="@drawable/iasn_logo"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/greeting_text"
+        android:id="@+id/greetingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -518,6 +520,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/top_view"
         app:layout_constraintStart_toStartOf="@+id/top_view"
         app:layout_constraintTop_toTopOf="@+id/backgroundImage" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greetingTextView"
+        app:layout_constraintBottom_toTopOf="@+id/greetingTextView"
+        app:layout_constraintEnd_toEndOf="@+id/greetingTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

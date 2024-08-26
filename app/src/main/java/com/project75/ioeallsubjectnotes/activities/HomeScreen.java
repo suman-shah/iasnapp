@@ -3,10 +3,12 @@ package com.project75.ioeallsubjectnotes.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,17 +16,51 @@ import androidx.core.content.ContextCompat;
 
 import com.project75.ioeallsubjectnotes.R;
 
+import java.util.Calendar;
+
 public class HomeScreen extends AppCompatActivity {
 
         //search
         private EditText searchEditText;
         private ImageView searchIcon;
+        private TextView greetingTextView;
+        private WebView webView;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             EdgeToEdge.enable(this);
             setContentView(R.layout.activity_main2);
+
+            //greeting and date
+            greetingTextView = findViewById(R.id.greetingTextView);
+            webView = findViewById(R.id.webView);
+
+            // Setup WebView
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    // Optional: Check if Nepali date is correctly rendered
+                    webView.evaluateJavascript(
+                            "(function() { return document.getElementById('nepaliDate').innerText; })();",
+                            result -> {
+                                // Debugging result
+                                System.out.println("Nepali Date Result: " + result);
+                            }
+                    );
+                }
+            });
+
+            // Load HTML file from assets
+            webView.loadUrl("file:///android_asset/nepali_date.html");
+
+            // Display greeting message
+            String greetingMessage = getGreetingMessage();
+            greetingTextView.setText(greetingMessage);
+
+
 
             // Initialize views
             searchEditText = findViewById(R.id.search_edit_text);
@@ -52,7 +88,7 @@ public class HomeScreen extends AppCompatActivity {
         setButtonClickListener(findViewById(R.id.Paint_button), MainActivityPaint.class, R.drawable.button_pressed, R.drawable.rattle);
         setButtonClickListener(findViewById(R.id.scientific_calculator), MainActivityScientificCalculator.class, R.drawable.button_pressed, R.drawable.polo);
         setButtonClickListener(findViewById(R.id.pdf_scanner), MainActivityPdfScan.class, R.drawable.button_pressed, R.drawable.birdie);
-            setButtonClickListener(findViewById(R.id.sendEmai), SendEmailActivity.class, R.drawable.button_pressed, R.drawable.support_icon);
+        setButtonClickListener(findViewById(R.id.sendEmai), SendEmailActivity.class, R.drawable.button_pressed, R.drawable.support_icon);
 
 
         // <!-- Social Media Handles -->
@@ -66,6 +102,8 @@ public class HomeScreen extends AppCompatActivity {
         twitterButton.setOnClickListener(view -> openSocialMediaLink("https://x.com/iasn"));
         socialyoutubeButton.setOnClickListener(view -> openSocialMediaLink("https://www.youtube.com/@ioeallsubjectnote"));
     }
+
+
 
     private void setButtonClickListener(ImageButton button, Class<?> targetActivity, int pressedDrawableId, int defaultDrawableId) {
         button.setOnClickListener(view -> {
@@ -85,4 +123,21 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
     }
+    private String getGreetingMessage() {
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+        if (hour >= 5 && hour < 12) {
+            return "Good Morning";
+        } else if (hour >= 12 && hour < 17) {
+            return "Good Afternoon";
+        } else if (hour >= 17 && hour < 21) {
+            return "Good Evening";
+        } else {
+            return "Good Night";
+        }
+    }
+
+
+
 }

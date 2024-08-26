@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Date Example</title>
+    <!-- Include the Nepali Date Library -->
+    <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter@3.3.2/dist/nepali-date-converter.umd.min.js"></script>
+</head>
+<body>
+<!-- Container to display the Nepali date -->
+<div id="nepaliDate"></div>
+
+<!-- JavaScript to convert and display the Nepali date -->
+<script>
+    // Create a NepaliDate object with the current date
+    const nepaliDate = new NepaliDate();
+
+    // Format the Nepali date as 'ddd DD, MMMM YYYY' in Nepali language
+    const formattedNepaliDate = nepaliDate.format('ddd DD, MMMM YYYY', 'np');
+
+    // Display the formatted Nepali date in the div
+    document.getElementById('nepaliDate').innerText = formattedNepaliDate;
+</script>
+</body>
+</html>

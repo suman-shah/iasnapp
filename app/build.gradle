@@ -52,5 +52,6 @@ dependencies {
     androidTestImplementation libs.androidx.test.ext.junit.v113
     androidTestImplementation libs.androidx.test.espresso.espresso.core.v340.x2
     implementation libs.androidx.recyclerview.v121
+    implementation libs.androidx.webkit
 
 }
