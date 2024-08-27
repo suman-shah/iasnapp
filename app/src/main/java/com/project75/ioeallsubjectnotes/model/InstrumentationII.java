@@ -1,12 +1,16 @@
 package com.project75.ioeallsubjectnotes.model;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,12 +60,23 @@ public class InstrumentationII extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(InstrumentationII.this, FullViewInstrumentationII.class);
-                intent.putExtra("pdf_url", pdfUrls[position]);
-                startActivity(intent);
+                if (isNetworkAvailable()) {
+                    Intent intent = new Intent(InstrumentationII.this, FullViewInstrumentationII.class);
+                    intent.putExtra("pdf_url", pdfUrls[position]);
+                    startActivity(intent);
+                } else {
+                    // Show a custom error message if no internet connection is available
+                    Toast.makeText(InstrumentationII.this, "No internet connection", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
         });
+    }
+    // Method to check for network availability
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
