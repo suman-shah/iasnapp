@@ -1,13 +1,19 @@
 package com.project75.ioeallsubjectnotes.activities;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.project75.ioeallsubjectnotes.R;
 
 public class MainActivityNotifications extends AppCompatActivity {
@@ -24,6 +30,9 @@ public class MainActivityNotifications extends AppCompatActivity {
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setDomStorageEnabled(true); // Enable DOM storage for WebView
 
         // Handle URL loading within the WebView
         webView.setWebViewClient(new WebViewClient() {
@@ -50,10 +59,22 @@ public class MainActivityNotifications extends AppCompatActivity {
                 view.loadUrl(url);
                 return true;
             }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                view.loadUrl("file:///android_asset/error.html");
+                Toast.makeText(MainActivityNotifications.this, "No internet connection", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        // Load the initial page
-        webView.loadUrl("http://exam.ioe.edu.np/");
+        // Check for internet connectivity before loading the URL
+        if (isNetworkAvailable()) {
+            webView.loadUrl("http://exam.ioe.edu.np/");
+        } else {
+            webView.loadUrl("file:///android_asset/error.html");
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -63,5 +84,12 @@ public class MainActivityNotifications extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    // Method to check for network availability
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

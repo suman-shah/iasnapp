@@ -11,7 +11,11 @@ import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import com.project75.ioeallsubjectnotes.R;
-
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.webkit.WebResourceError;
+import android.widget.Toast;
 public class MainActivityQuestionPaper extends AppCompatActivity {
 
     private WebView webView;
@@ -25,6 +29,10 @@ public class MainActivityQuestionPaper extends AppCompatActivity {
         setContentView(R.layout.activity_main_question_paper);
 
         webView = findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);  // Enable JavaScript if needed
+        webView.getSettings().setDomStorageEnabled(true);  // Enable DOM storage
+        webView.getSettings().setLoadWithOverviewMode(true);  // Scale the content to fit the screen
+        webView.getSettings().setUseWideViewPort(true);  // Enable wide viewport to fit content
         bannerView = findViewById(R.id.banner_view);
 
         WebSettings webSettings = webView.getSettings();
@@ -51,9 +59,23 @@ public class MainActivityQuestionPaper extends AppCompatActivity {
                 webView.evaluateJavascript(js, null);
 
             }
+            // Handle errors like no internet connection
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                // Show a custom error message or load a local error page
+                view.loadUrl("file:///android_asset/error.html");
+                Toast.makeText(MainActivityQuestionPaper.this, "No internet connection", Toast.LENGTH_SHORT).show();
+            }
         });
-
-        webView.loadUrl("https://bharatbhandari.com.np/bel.html");
+        // Check for internet connectivity before loading the URL
+        if (isNetworkAvailable()) {
+             webView.loadUrl("https://bharatbhandari.com.np/bel.html");
+        } else {
+            // Show a custom error message or load a local error page
+            webView.loadUrl("file:///android_asset/error.html");
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+        }
 
         // Set up touch listener for dragging the banner
         bannerView.setOnTouchListener(new View.OnTouchListener() {
@@ -103,4 +125,11 @@ public class MainActivityQuestionPaper extends AppCompatActivity {
             // This method can be called from JavaScript on the page
         }
     }
+    // Method to check for network availability
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 }
+

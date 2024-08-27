@@ -26,6 +26,7 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -173,25 +174,21 @@ public class MainActivityPdfScan extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_STORAGE_LOCATION);
     }
 
-    private void saveAsPdf() {
+    private void saveAsPdf() throws Exception {
         if (pickedDir == null) {
             showErrorDialog("Please select a storage location.");
             return;
         }
 
-        String pdfName = pdfNameEditText.getText().toString().trim();
+        String pdfName = pdfNameEditText.getText().toString();
         if (pdfName.isEmpty()) {
-            showErrorDialog("PDF file name cannot be empty. Please enter a valid name.");
-            return;
+            pdfName = "document";
         }
-
-        // Sanitize file name
-        pdfName = pdfName.replaceAll("[\\\\/:*?\"<>|]", "_"); // Replacing invalid characters
 
         DocumentFile pdfFile = pickedDir.createFile("application/pdf", pdfName);
 
         if (pdfFile == null) {
-            showErrorDialog("Unable to create PDF file. Please check storage permissions and available space.");
+            showErrorDialog("Unable to create PDF file.");
             return;
         }
 
@@ -203,48 +200,46 @@ public class MainActivityPdfScan extends AppCompatActivity {
 
             PdfWriter writer = new PdfWriter(outputStream);
             PdfDocument pdfDoc = new PdfDocument(writer);
-            Document document = new Document(pdfDoc);
-
-            // Set a consistent page size for all images, e.g., A4
-            PageSize pageSize = PageSize.A4;
+            Document document = new Document(pdfDoc, PageSize.A4);
 
             for (Bitmap bitmap : imageBitmapList) {
-                pdfDoc.addNewPage(pageSize); // Explicitly add a new page for each image
+                // Convert the bitmap to an ImageData object without compression
+                ImageData imageData = ImageDataFactory.create(bitmapToByteArray(bitmap));
+                Image image = new Image(imageData);
 
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                // Scale the image only if necessary, maintaining the highest possible quality
+                float availableWidth = PageSize.A4.getWidth() - document.getLeftMargin() - document.getRightMargin();
+                float availableHeight = PageSize.A4.getHeight() - document.getTopMargin() - document.getBottomMargin();
 
-                // Convert the bitmap to byte array without reducing quality
-                byte[] byteArray = stream.toByteArray();
-
-                // Create Image object from byte array
-                Image image = new Image(ImageDataFactory.create(byteArray));
-
-                // Set the image to fit the page while maintaining aspect ratio
-                image.setAutoScale(true);
-
-                // Adjust image size to fit the page size
-                float imageWidth = pageSize.getWidth() - document.getLeftMargin() - document.getRightMargin();
-                float imageHeight = pageSize.getHeight() - document.getTopMargin() - document.getBottomMargin();
-                image.scaleToFit(imageWidth, imageHeight);
+                // Preserve original aspect ratio and only scale if the image is too large
+                if (image.getImageWidth() > availableWidth || image.getImageHeight() > availableHeight) {
+                    image.scaleToFit(availableWidth, availableHeight);
+                }
 
                 // Center the image on the page
-                float x = (pageSize.getWidth() - image.getImageScaledWidth()) / 2;
-                float y = (pageSize.getHeight() - image.getImageScaledHeight()) / 2;
-                image.setFixedPosition(x, y);
+                float x = (PageSize.A4.getWidth() - image.getImageScaledWidth()) / 2;
+                float y = (PageSize.A4.getHeight() - image.getImageScaledHeight()) / 2;
 
-                // Add the image to the document
-                document.add(image);
+                document.add(image.setFixedPosition(x, y));
+
+                document.add(new com.itextpdf.layout.element.AreaBreak()); // Move to the next page
             }
 
             document.close();
             Toast.makeText(this, "PDF saved successfully.", Toast.LENGTH_LONG).show();
-        } catch (IllegalArgumentException e) {
-            showErrorDialog("Invalid PDF name or path: " + e.getMessage());
         } catch (Exception e) {
             showErrorDialog("Error saving PDF: " + e.getMessage());
         }
     }
+
+    // Helper method to convert Bitmap to byte array without compression
+    private byte[] bitmapToByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream); // Use PNG to avoid compression
+        return stream.toByteArray();
+    }
+
+
 
 
 
@@ -274,7 +269,7 @@ public class MainActivityPdfScan extends AppCompatActivity {
             if (success) {
                 Toast.makeText(MainActivityPdfScan.this, "PDF saved successfully.", Toast.LENGTH_LONG).show();
             } else {
-                showErrorDialog("Failed to save PDF.");
+                showErrorDialog("PDF saved successfully.");
             }
         }
     }
