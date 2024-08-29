@@ -34,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Red"
-                android:textColor="#FF0000"
+                android:background="@drawable/rounded_button_red"
+                android:textColor="#FFFFFF"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
 
@@ -43,8 +44,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Green"
-                android:textColor="#00FF00"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_button_green"
                 android:paddingLeft="10dp"
+                android:layout_marginStart="5dp"
                 android:paddingRight="10dp" />
 
             <Button
@@ -52,8 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blue"
-                android:textColor="#0000FF"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_button_blue"
                 android:paddingLeft="10dp"
+                android:layout_marginStart="5dp"
                 android:paddingRight="10dp" />
 
             <Button
@@ -61,8 +66,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yellow"
-                android:textColor="#FFFF00"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_button_yellow"
                 android:paddingLeft="10dp"
+                android:layout_marginStart="5dp"
                 android:paddingRight="10dp" />
 
             <Button
@@ -70,6 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Eraser"
+                android:textColor="#181717"
+                android:layout_marginStart="5dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
         </LinearLayout>
@@ -79,5 +88,9 @@
         android:id="@+id/clearButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:textColor="#0B0B0B"
+        android:layout_marginTop="5dp"
+        android:elevation="4dp"
         android:text="Clear" />
 </LinearLayout>

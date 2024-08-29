@@ -102,8 +102,12 @@
             android:gravity="center"
             android:orientation="horizontal">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
@@ -123,11 +127,12 @@
 
             <!-- Button 1 -->
             <LinearLayout
-                android:layout_width="173dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:gravity="right|center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/sendEmai"
@@ -137,9 +142,8 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/support_icon" />
             </LinearLayout>
-
-
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
     <!-- Search Bar CardView -->
     <androidx.cardview.widget.CardView
