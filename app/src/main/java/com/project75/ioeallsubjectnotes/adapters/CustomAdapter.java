@@ -286,7 +286,7 @@ public class CustomAdapter implements ExpandableListAdapter {
                     intent = new Intent(context, InstrumentationII.class);
                     intent.putExtra("topic_name", topic.getTopicName());
                 }
-                if (topic.getTopicName().equals("Engineering Economic")) {
+                if (topic.getTopicName().equals("Engineering Economics")) {
                     intent = new Intent(context, EngineeringEconomics.class);
                     intent.putExtra("topic_name", topic.getTopicName());
                 }

@@ -185,7 +185,7 @@ public class TopicAdapter extends BaseAdapter {
                 return new Intent(context, ControlSystem.class);
             case "Instrumentation II":
                 return new Intent(context, InstrumentationII.class);
-            case "Engineering Economic":
+            case "Engineering Economics":
                 return new Intent(context, EngineeringEconomics.class);
             case "Hydro Power":
                 return new Intent(context, HydroPower.class);

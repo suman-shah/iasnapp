@@ -219,7 +219,7 @@ public class SearchActivity extends AppCompatActivity {
         topics.add(new Topics("Probability and Statistics", ""));
         topics.add(new Topics("Control System", ""));
         topics.add(new Topics("Instrumentation II", ""));
-        topics.add(new Topics("Engineering Economic", ""));
+        topics.add(new Topics("Engineering Economics", ""));
         topics.add(new Topics("Hydro Power", ""));
         topics.add(new Topics("Switchgear & Protection", ""));
         topics.add(new Topics("Digital Control System", ""));
@@ -315,7 +315,7 @@ public class SearchActivity extends AppCompatActivity {
                 return ControlSystem.class;
             case "Instrumentation II":
                 return InstrumentationII.class;
-            case "Engineering Economic":
+            case "Engineering Economics":
                 return EngineeringEconomics.class;
             case "Hydro Power":
                 return HydroPower.class;
