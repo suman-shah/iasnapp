@@ -28,11 +28,11 @@ public class MainActivityNotifications extends AppCompatActivity {
 
         webView = findViewById(R.id.webview);
 
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadWithOverviewMode(true);
-        webSettings.setUseWideViewPort(true);
-        webSettings.setDomStorageEnabled(true); // Enable DOM storage for WebView
+        webView = findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);  // Enable JavaScript if needed
+        webView.getSettings().setDomStorageEnabled(true);  // Enable DOM storage
+        webView.getSettings().setLoadWithOverviewMode(true);  // Scale the content to fit the screen
+        //webView.getSettings().setUseWideViewPort(true);  // Enable wide viewport to fit content
 
         // Handle URL loading within the WebView
         webView.setWebViewClient(new WebViewClient() {

@@ -32,7 +32,7 @@ public class MainActivityQuestionPaper extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);  // Enable JavaScript if needed
         webView.getSettings().setDomStorageEnabled(true);  // Enable DOM storage
         webView.getSettings().setLoadWithOverviewMode(true);  // Scale the content to fit the screen
-        webView.getSettings().setUseWideViewPort(true);  // Enable wide viewport to fit content
+        //webView.getSettings().setUseWideViewPort(true);  // Enable wide viewport to fit content
         bannerView = findViewById(R.id.banner_view);
 
         WebSettings webSettings = webView.getSettings();

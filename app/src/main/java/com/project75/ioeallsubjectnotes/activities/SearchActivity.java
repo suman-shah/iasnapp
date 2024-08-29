@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
@@ -116,6 +117,7 @@ public class SearchActivity extends AppCompatActivity {
 
         // Retrieve the query from the Intent
         String query = getIntent().getStringExtra("query");
+        boolean hasMatch = false;
 
         // Set the query to the searchEditText
         if (query != null && !query.isEmpty()) {
@@ -129,6 +131,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
                 filterTopics(charSequence.toString());
+
             }
 
             @Override
@@ -145,23 +148,41 @@ public class SearchActivity extends AppCompatActivity {
         // Perform the initial filter based on the retrieved query
         if (query != null && !query.isEmpty()) {
             filterTopics(query);
+            hasMatch = true;
+        }
+        // Show toast message if no topics match the query
+        if (filteredTopicsList.isEmpty() && !query.isEmpty()) {
+            Toast.makeText(this, "No matching subject found 😢", Toast.LENGTH_SHORT).show();
+        } else if (hasMatch) {
+            // Show toast message if matching topics are found
+            Toast.makeText(this, "Subject found 😊", Toast.LENGTH_SHORT).show();
         }
 
     }
 
+
     private void filterTopics(String query) {
         filteredTopicsList.clear();
+        boolean hasMatch = false;
         if (TextUtils.isEmpty(query)) {
             filteredTopicsList.addAll(allTopicsList);
         } else {
             for (Topics topic : allTopicsList) {
                 if (topic.getTopicName().toLowerCase().contains(query.toLowerCase())) {
                     filteredTopicsList.add(topic);
+                    hasMatch = true;
                 }
             }
+        }// Show toast message if no topics match the query
+        if (filteredTopicsList.isEmpty() && !query.isEmpty()) {
+            Toast.makeText(this, "Subject not found 🤔", Toast.LENGTH_SHORT).show();
+        } else if (hasMatch) {
+            // Show toast message if matching topics are found
+            Toast.makeText(this, "Subject found 😍", Toast.LENGTH_SHORT).show();
         }
         adapter.notifyDataSetChanged(); // Notify adapter about data changes
     }
+
 
     private List<Topics> getAllTopics() {
         // Initialize and return the list of all topics
