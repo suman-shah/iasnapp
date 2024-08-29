@@ -1,203 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
     <style>
-        /* Style for the game container */
-        .game-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #e0e0e0; /* Light gray background */
-            overflow: hidden; /* Prevents page scroll */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Style for the game area frame */
-        .game-frame {
-            padding: 20px; /* Space between the canvas and the border */
-            background-color: #f7f7f7; /* Slightly lighter background inside the frame */
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
-        }
-
-        /* Style for the canvas */
-        canvas {
-            border: 1px solid #d3d3d3;
-            background-color: #f1f1f1;
-        }
-
-        /* Style for the ACCELERATE button */
-        button {
-            padding: 20px 40px; /* Increase padding for a larger button */
-            font-size: 24px;    /* Increase font size for larger text */
-            background-color: #4CAF50; /* Green background color */
-            color: white;       /* White text color */
-            border: none;       /* Remove border */
-            border-radius: 10px; /* Rounded corners */
-            cursor: pointer;  /* Pointer cursor on hover */
-
-        }
-
-        /* Style button when hovering */
-        button:hover {
-            background-color: #45a049;
-        }
-
-        /* Style for offline message */
-        .offline-message {
-            color: red; /* Set text color to red */
+        body {
+            background-color: ghostwhite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Adds padding to avoid elements touching the edges */
             text-align: center;
-            margin-top: 50px;
-        }
-        .gameinfor{
-        text-align: center;
         }
 
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 2px solid black;
+            background-color: white;
+            max-width: 100%;
+            height: auto; /* Ensures the canvas is responsive */
+            margin-bottom: 20px; /* Adds space below the canvas */
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .offline-message {
+            color: green;
+            background-color: white;
+            padding: 20px;
+            border: 4px solid white;
+            border-radius: 10px;
+            position: fixed; /* Fix the pink */
+            top: 20px; /* Position it from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center the message */
+            display: none; /* Hide initially; will be displayed dynamically */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adds a shadow for better visibility */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        /* Style for the control buttons */
+        .controls {
+            margin-top: 20px;
+        }
+
+        .control-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .control-btn:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
-<body onload="startGame()">
-<div class="game-container">
-    <div class="game-frame">
-        <!-- The game canvas will be inserted here -->
-    </div>
+<body>
+<h1>Pong Game</h1>
+<canvas id="pong" width="800" height="400"></canvas>
+<p>Control the left player using up and down buttons or arrow keys</p>
+
+<!-- Control Buttons -->
+<div class="controls">
+    <button class="control-btn" id="upBtn">Move Up</button>
+    <button class="control-btn" id="downBtn">Move Down</button>
 </div>
 
-<script>
-    var myGamePiece;
-    var myObstacles = [];
-    var myScore;
-
-    function startGame() {
-        myGamePiece = new component(30, 30, "red", 10, 120);
-        myGamePiece.gravity = 0.05;
-        myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-        myGameArea.start();
-    }
-
-    var myGameArea = {
-        canvas : document.createElement("canvas"),
-        start : function() {
-            this.canvas.width = 480;
-            this.canvas.height = 270;
-            this.context = this.canvas.getContext("2d");
-            document.querySelector('.game-frame').appendChild(this.canvas);
-            this.frameNo = 0;
-            this.interval = setInterval(updateGameArea, 20);
-            },
-        clear : function() {
-            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        }
-    }
-
-    function component(width, height, color, x, y, type) {
-        this.type = type;
-        this.score = 0;
-        this.width = width;
-        this.height = height;
-        this.speedX = 0;
-        this.speedY = 0;
-        this.x = x;
-        this.y = y;
-        this.gravity = 0;
-        this.gravitySpeed = 0;
-        this.update = function() {
-            ctx = myGameArea.context;
-            if (this.type == "text") {
-                ctx.font = this.width + " " + this.height;
-                ctx.fillStyle = color;
-                ctx.fillText(this.text, this.x, this.y);
-            } else {
-                ctx.fillStyle = color;
-                ctx.fillRect(this.x, this.y, this.width, this.height);
-            }
-        }
-        this.newPos = function() {
-            this.gravitySpeed += this.gravity;
-            this.x += this.speedX;
-            this.y += this.speedY + this.gravitySpeed;
-            this.hitBottom();
-        }
-        this.hitBottom = function() {
-            var rockbottom = myGameArea.canvas.height - this.height;
-            if (this.y > rockbottom) {
-                this.y = rockbottom;
-                this.gravitySpeed = 0;
-            }
-        }
-        this.crashWith = function(otherobj) {
-            var myleft = this.x;
-            var myright = this.x + (this.width);
-            var mytop = this.y;
-            var mybottom = this.y + (this.height);
-            var otherleft = otherobj.x;
-            var otherright = otherobj.x + (otherobj.width);
-            var othertop = otherobj.y;
-            var otherbottom = otherobj.y + (otherobj.height);
-            var crash = true;
-            if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-                crash = false;
-            }
-            return crash;
-        }
-    }
-
-    function updateGameArea() {
-        var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-        for (i = 0; i < myObstacles.length; i += 1) {
-            if (myGamePiece.crashWith(myObstacles[i])) {
-                return;
-            }
-        }
-        myGameArea.clear();
-        myGameArea.frameNo += 1;
-        if (myGameArea.frameNo == 1 || everyinterval(150)) {
-            x = myGameArea.canvas.width;
-            minHeight = 20;
-            maxHeight = 200;
-            height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-            minGap = 50;
-            maxGap = 200;
-            gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-            myObstacles.push(new component(10, height, "green", x, 0));
-            myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
-        }
-        for (i = 0; i < myObstacles.length; i += 1) {
-            myObstacles[i].x += -1;
-            myObstacles[i].update();
-        }
-        myScore.text="SCORE: " + myGameArea.frameNo;
-        myScore.update();
-        myGamePiece.newPos();
-        myGamePiece.update();
-    }
-
-    function everyinterval(n) {
-        if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-        return false;
-    }
-
-    function accelerate(n) {
-        myGamePiece.gravity = n;
-    }
-
-</script>
-<br>
-
-<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)"
-        ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)">
-    ACCELERATE
-</button>
-<div class="gameinfor">
-    <p>Use the ACCELERATE button to stay in the air</p>
-    <p>How long can you stay alive?</p>
-</div>
-
-
+<!-- Offline Message -->
 <div class="offline-message">
-    <h1>Oops!</h1>
-    <p>It looks like you're offline.</p>
-    <p>Please check your internet connection and try again.</p>
+    <h1>Welcome Back!</h1>
+    <p>Everything is looking good..</p>
+    <p>You’re online and ready to study.</p>
 </div>
+
+<script src="./script.js"></script>
+<script>
+    // Function to check the user's online status
+    function checkOnlineStatus() {
+        const offlineMessage = document.querySelector('.offline-message');
+
+        if (!navigator.onLine) {
+            offlineMessage.style.display = 'none'; // Show the message if offline
+        } else {
+            offlineMessage.style.display = 'block';  // Hide the message if online
+        }
+    }
+
+    // Check online status on page load
+    window.addEventListener('load', checkOnlineStatus);
+
+    // Check online status when network status changes
+    window.addEventListener('online', checkOnlineStatus);
+    window.addEventListener('offline', checkOnlineStatus);
+
+    // Button control
+    function handleButtonControl(event, moveDirection) {
+        event.preventDefault(); // Prevent default behavior for touch events
+        Pong.player.move = moveDirection;
+    }
+
+    function handleButtonRelease() {
+        Pong.player.move = DIRECTION.IDLE;
+    }
+
+    const upButton = document.getElementById('upBtn');
+    const downButton = document.getElementById('downBtn');
+
+    // Mouse events
+    upButton.addEventListener('mousedown', function (event) {
+        handleButtonControl(event, DIRECTION.UP);
+    });
+
+    downButton.addEventListener('mousedown', function (event) {
+        handleButtonControl(event, DIRECTION.DOWN);
+    });
+
+    document.addEventListener('mouseup', handleButtonRelease);
+    document.addEventListener('mouseleave', handleButtonRelease);
+
+    // Touch events
+    upButton.addEventListener('touchstart', function (event) {
+        handleButtonControl(event, DIRECTION.UP);
+    });
+
+    downButton.addEventListener('touchstart', function (event) {
+        handleButtonControl(event, DIRECTION.DOWN);
+    });
+
+    document.addEventListener('touchend', handleButtonRelease);
+    document.addEventListener('touchcancel', handleButtonRelease);
+</script>
 
 </body>
 </html>
