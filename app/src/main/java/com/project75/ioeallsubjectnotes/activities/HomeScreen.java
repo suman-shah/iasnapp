@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -30,11 +31,26 @@ public class HomeScreen extends AppCompatActivity {
         private WebView webView;
         private EditText search_edit_text;
 
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             EdgeToEdge.enable(this);
             setContentView(R.layout.activity_main2);
+
+
+
+            // Find ImageView and set OnClickListener
+            ImageView imgCheckResult = findViewById(R.id.imageView);
+            imgCheckResult.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Start CheckResult activity
+                    Intent intent = new Intent(HomeScreen.this, CheckResult.class);
+                    startActivity(intent);
+                }
+            });
 
             //greeting and date
             greetingTextView = findViewById(R.id.greetingTextView);
@@ -59,7 +75,9 @@ public class HomeScreen extends AppCompatActivity {
                                 System.out.println("Nepali Date Result: " + result);
                             }
                     );
+
                 }
+
             });
 
             // Load HTML file from assets
@@ -93,6 +111,7 @@ public class HomeScreen extends AppCompatActivity {
             });
 
 
+
             // Set up button click listeners using the new method
         setButtonClickListener(findViewById(R.id.notes_button), MainActivity.class, R.drawable.button_pressed,R.drawable.notes_icon);
         setButtonClickListener(findViewById(R.id.youtube_button), MainActivityYouTubeChannel.class, R.drawable.button_pressed, R.drawable.youtube_icon);
@@ -106,6 +125,7 @@ public class HomeScreen extends AppCompatActivity {
         setButtonClickListener(findViewById(R.id.scientific_calculator), MainActivityScientificCalculator.class, R.drawable.button_pressed, R.drawable.polo);
         setButtonClickListener(findViewById(R.id.pdf_scanner), MainActivityPdfScan.class, R.drawable.button_pressed, R.drawable.birdie);
         setButtonClickListener(findViewById(R.id.sendEmai), SendEmailActivity.class, R.drawable.button_pressed, R.drawable.support_icon);
+
 
 
         // <!-- Social Media Handles -->
@@ -136,6 +156,7 @@ public class HomeScreen extends AppCompatActivity {
         });
     }
 
+
     private void openSocialMediaLink(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
@@ -158,4 +179,7 @@ public class HomeScreen extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(HomeScreen.this, message, Toast.LENGTH_SHORT).show();
     }
+
+
 }
+
