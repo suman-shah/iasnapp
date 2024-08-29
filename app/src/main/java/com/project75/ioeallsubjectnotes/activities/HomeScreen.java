@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ public class HomeScreen extends AppCompatActivity {
         private ImageView searchIcon;
         private TextView greetingTextView;
         private WebView webView;
+        private EditText search_edit_text;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class HomeScreen extends AppCompatActivity {
             WebView myWebView = findViewById(R.id.webView);
             myWebView.setBackgroundColor(Color.TRANSPARENT);
             myWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+            search_edit_text = findViewById(R.id.search_edit_text);
+
 
             // Setup WebView
             webView.getSettings().setJavaScriptEnabled(true);
@@ -66,6 +71,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
 
+
             // Initialize views
             searchEditText = findViewById(R.id.search_edit_text);
             searchIcon = findViewById(R.id.search_icon);
@@ -73,14 +79,21 @@ public class HomeScreen extends AppCompatActivity {
             // Set up search icon click listener
             searchIcon.setOnClickListener(view -> {
                 String query = searchEditText.getText().toString().trim();
-                if (!query.isEmpty()) {
-                    Intent intent = new Intent(HomeScreen.this, SearchActivity.class);
-                    intent.putExtra("SEARCH_QUERY", query); // Pass the search query to SearchActivity
-                    startActivity(intent);
+
+                if (TextUtils.isEmpty(query)) {
+                    // If the search query is empty, show a toast message
+                    showToast("Please enter a Subject Name");
+                    return;
                 }
+
+                // Intent to search for the subject
+                Intent intent = new Intent(HomeScreen.this, SearchActivity.class);
+                intent.putExtra("query", query); // Pass the search query to SearchActivity
+                startActivity(intent);
             });
 
-        // Set up button click listeners using the new method
+
+            // Set up button click listeners using the new method
         setButtonClickListener(findViewById(R.id.notes_button), MainActivity.class, R.drawable.button_pressed,R.drawable.notes_icon);
         setButtonClickListener(findViewById(R.id.youtube_button), MainActivityYouTubeChannel.class, R.drawable.button_pressed, R.drawable.youtube_icon);
         setButtonClickListener(findViewById(R.id.question_papers_button), MainActivityQuestionPaper.class, R.drawable.button_pressed, R.drawable.question_papers_icon);
@@ -142,6 +155,7 @@ public class HomeScreen extends AppCompatActivity {
         }
     }
 
-
-
+    private void showToast(String message) {
+        Toast.makeText(HomeScreen.this, message, Toast.LENGTH_SHORT).show();
+    }
 }

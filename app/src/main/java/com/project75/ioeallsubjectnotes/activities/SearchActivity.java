@@ -114,6 +114,14 @@ public class SearchActivity extends AppCompatActivity {
         adapter = new TopicAdapter(this, filteredTopicsList);
         listView.setAdapter((ListAdapter) adapter);
 
+        // Retrieve the query from the Intent
+        String query = getIntent().getStringExtra("query");
+
+        // Set the query to the searchEditText
+        if (query != null && !query.isEmpty()) {
+            searchEditText.setText(query);
+        }
+
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {}
@@ -127,12 +135,18 @@ public class SearchActivity extends AppCompatActivity {
             public void afterTextChanged(android.text.Editable editable) {}
         });
 
+
         listView.setOnItemClickListener((adapterView, view, position, id) -> {
             Topics selectedTopic = filteredTopicsList.get(position);
             Intent intent = new Intent(SearchActivity.this, getActivityForTopic(selectedTopic.getTopicName()));
             intent.putExtra("topic_name", selectedTopic.getTopicName());
             startActivity(intent);
         });
+        // Perform the initial filter based on the retrieved query
+        if (query != null && !query.isEmpty()) {
+            filterTopics(query);
+        }
+
     }
 
     private void filterTopics(String query) {
@@ -338,4 +352,5 @@ public class SearchActivity extends AppCompatActivity {
                 return null;
         }
     }
+
 }
