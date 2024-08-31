@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -58,14 +60,48 @@ public class CheckResult extends AppCompatActivity {
         checkAndRequestPermissions();
 
         btnDownload.setOnClickListener(v -> {
+            if (!isNetworkAvailable()) {
+                Toast.makeText(this, "No internet connection. Please check your network settings.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Define the path to the existing text file
+            File textFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "symbol_numbers.txt");
+
+            // Check if the file exists
+            if (textFile.exists()) {
+                // Notify the user that the old file will be deleted and a new file will be downloaded
+                Toast.makeText(this, "Deleting old file and downloading new file...", Toast.LENGTH_SHORT).show();
+
+                // Delete the existing file
+                boolean deleted = textFile.delete();
+                if (!deleted) {
+                    Toast.makeText(this, "Failed to delete old file.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } else {
+                // Notify the user that the file is being downloaded for the first time
+                Toast.makeText(this, "Downloading new file...", Toast.LENGTH_SHORT).show();
+            }
+
+            // Proceed to download the new file
             String googleDriveUrl = "https://drive.google.com/uc?export=download&id=1bFD-tY9gxi9u4ZvMb2pCCUmL6jok-8ag";
             downloadFileFromGoogleDrive(googleDriveUrl, "symbol_numbers.txt");
         });
 
-        btnCheckResult.setOnClickListener(v -> checkResult());
 
         btnShowSymbolNumbers.setOnClickListener(v -> {
+            // Define the path to the text file
             File textFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "symbol_numbers.txt");
+
+            // Check if the text file exists
+            if (!textFile.exists()) {
+                // File does not exist, prompt the user to download the file first
+                Toast.makeText(this, "Please download the text file first.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // File exists, proceed to extract and display symbol numbers
             List<String> symbolNumbers = extractSymbolNumbersFromTextFile(textFile);
             if (symbolNumbers.isEmpty()) {
                 Toast.makeText(this, "No symbol numbers found.", Toast.LENGTH_SHORT).show();
@@ -74,7 +110,9 @@ public class CheckResult extends AppCompatActivity {
             }
         });
 
+
         btnRegisterSymbol.setOnClickListener(v -> registerSymbolNumber());
+        btnCheckResult.setOnClickListener(v -> checkResult());
     }
 
     private void downloadFileFromGoogleDrive(String url, String fileName) {
@@ -94,21 +132,42 @@ public class CheckResult extends AppCompatActivity {
     }
 
     private void checkResult() {
+        // Define the path to the text file
+        File textFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "symbol_numbers.txt");
+
+        // Check if the text file exists
+        if (!textFile.exists()) {
+            // File does not exist, prompt the user to download the file first
+            Toast.makeText(this, "Please download the text file first.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Retrieve the registered symbol number from SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String registeredSymbolNumber = sharedPreferences.getString("registeredSymbolNumber", "");
 
+        // Check if the registered symbol number exists
         if (registeredSymbolNumber == null || registeredSymbolNumber.isEmpty()) {
             Toast.makeText(this, "No symbol number registered.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        File textFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "symbol_numbers.txt");
+        // Use the registered symbol number for checking the result
         List<String> symbolNumbers = extractSymbolNumbersFromTextFile(textFile);
 
-        boolean isFound = symbolNumbers.contains(registeredSymbolNumber);
+        boolean isFound = false;
+        for (String symbol : symbolNumbers) {
+            if (symbol.equalsIgnoreCase(registeredSymbolNumber)) {
+                isFound = true;
+                break;
+            }
+        }
 
+        // Show custom AlertDialog with the result
         showAlertDialog("Result", "Symbol number " + registeredSymbolNumber + (isFound ? " has passed." : " has not passed or is not found."), isFound);
     }
+
+
 
     private List<String> extractSymbolNumbersFromTextFile(File textFile) {
         List<String> symbolNumbers = new ArrayList<>();
@@ -219,4 +278,13 @@ public class CheckResult extends AppCompatActivity {
 
         alertDialog.show();
     }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+            return activeNetwork != null && activeNetwork.isConnected();
+        }
+        return false;
+    }
+
 }
