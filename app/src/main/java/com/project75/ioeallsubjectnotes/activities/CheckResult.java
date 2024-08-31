@@ -3,13 +3,18 @@ package com.project75.ioeallsubjectnotes.activities;
 import android.Manifest;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +36,7 @@ public class CheckResult extends AppCompatActivity {
     private Button btnCheckResult, btnShowSymbolNumbers, btnDownload;
     private TextView tvSymbolNumbers;
     private static final int REQUEST_CODE = 100;
+    private Button btnRegisterSymbol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +48,32 @@ public class CheckResult extends AppCompatActivity {
         btnShowSymbolNumbers = findViewById(R.id.btnShowSymbolNumbers);
         btnDownload = findViewById(R.id.btnDownload);
         tvSymbolNumbers = findViewById(R.id.tvSymbolNumbers);
+        etSymbolNumber = findViewById(R.id.etSymbolNumber);
+        btnCheckResult = findViewById(R.id.btnCheckResult);
+        btnShowSymbolNumbers = findViewById(R.id.btnShowSymbolNumbers);
+        btnDownload = findViewById(R.id.btnDownload);
+        tvSymbolNumbers = findViewById(R.id.tvSymbolNumbers);
+        // Initialize views
+        etSymbolNumber = findViewById(R.id.etSymbolNumber);
+        btnCheckResult = findViewById(R.id.btnCheckResult);
+        btnShowSymbolNumbers = findViewById(R.id.btnShowSymbolNumbers);
+        btnDownload = findViewById(R.id.btnDownload);
+        tvSymbolNumbers = findViewById(R.id.tvSymbolNumbers);
+        btnRegisterSymbol = findViewById(R.id.btnRegisterSymbol);
+
+        // Initialize btnRegisterSymbol
+        btnRegisterSymbol = findViewById(R.id.btnRegisterSymbol);
+        // Retrieve and set the registered symbol number
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String registeredSymbolNumber = sharedPreferences.getString("registeredSymbolNumber", "");
+        if (!registeredSymbolNumber.isEmpty()) {
+            etSymbolNumber.setText(registeredSymbolNumber);
+        }
 
         checkAndRequestPermissions();
 
         btnDownload.setOnClickListener(v -> {
-            String googleDriveUrl = "https://drive.google.com/uc?export=download&id=1bFD-tY9gxi9u4ZvMb2pCCUmL6jok-8ag";  // Direct download link for the file
+            String googleDriveUrl = "https://drive.google.com/uc?export=download&id=1bFD-tY9gxi9u4ZvMb2pCCUmL6jok-8ag";
             downloadFileFromGoogleDrive(googleDriveUrl, "symbol_numbers.txt");
         });
 
@@ -61,6 +88,8 @@ public class CheckResult extends AppCompatActivity {
                 displaySymbolNumbers(symbolNumbers);
             }
         });
+        // Set OnClickListener for btnRegisterSymbol
+        btnRegisterSymbol.setOnClickListener(v -> registerSymbolNumber());
     }
 
     private void downloadFileFromGoogleDrive(String url, String fileName) {
@@ -80,36 +109,28 @@ public class CheckResult extends AppCompatActivity {
     }
 
     private void checkResult() {
-        String enteredSymbolNumber = etSymbolNumber.getText().toString().trim(); // Trim input
-
-        // Read the file from the Downloads directory
+        String enteredSymbolNumber = etSymbolNumber.getText().toString().trim();
         File textFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "symbol_numbers.txt");
         List<String> symbolNumbers = extractSymbolNumbersFromTextFile(textFile);
 
-        // Normalize the symbol numbers for comparison
         boolean isFound = false;
         for (String symbol : symbolNumbers) {
-            if (symbol.equalsIgnoreCase(enteredSymbolNumber.trim())) {  // Use equalsIgnoreCase for case-insensitive comparison
+            if (symbol.equalsIgnoreCase(enteredSymbolNumber)) {
                 isFound = true;
                 break;
             }
         }
 
-        if (isFound) {
-            Toast.makeText(this, "Symbol number " + enteredSymbolNumber + " has passed.", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Symbol number " + enteredSymbolNumber + " has not passed or is not found.", Toast.LENGTH_SHORT).show();
-        }
+        // Show custom AlertDialog with the result
+        showAlertDialog("Result", "Symbol number " + enteredSymbolNumber + (isFound ? " has passed." : " has not passed or is not found."), isFound);
     }
-
 
     private List<String> extractSymbolNumbersFromTextFile(File textFile) {
         List<String> symbolNumbers = new ArrayList<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(textFile))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String trimmedLine = line.trim();  // Trim each line
+                String trimmedLine = line.trim();
                 if (!trimmedLine.isEmpty()) {
                     symbolNumbers.add(trimmedLine);
                 }
@@ -118,10 +139,8 @@ public class CheckResult extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "Error reading file: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
         return symbolNumbers;
     }
-
 
     private void displaySymbolNumbers(List<String> symbolNumbers) {
         StringBuilder numbers = new StringBuilder();
@@ -153,4 +172,56 @@ public class CheckResult extends AppCompatActivity {
             }
         }
     }
+
+    private void showAlertDialog(String title, String message, boolean isSuccess) {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_custom, null);
+
+        ImageView ivDialogImage = dialogView.findViewById(R.id.ivDialogImage);
+        TextView tvDialogMessage = dialogView.findViewById(R.id.tvDialogMessage);
+        Button btnDialogOk = dialogView.findViewById(R.id.btnDialogOk);
+
+        ivDialogImage.setImageResource(isSuccess ? R.drawable.success_icon : R.drawable.failure_icon);
+        tvDialogMessage.setText(message);
+
+        androidx.appcompat.app.AlertDialog alertDialog = new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(dialogView)
+                .create();
+
+        playCustomSound(isSuccess ? R.raw.success_sound : R.raw.failure_sound);
+
+        btnDialogOk.setOnClickListener(v -> alertDialog.dismiss());
+
+        alertDialog.show();
+    }
+
+    private void playCustomSound(int soundResourceId) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, soundResourceId);
+        if (mediaPlayer != null) {
+            mediaPlayer.setOnCompletionListener(mp -> mp.release());
+            mediaPlayer.start();
+        } else {
+            Toast.makeText(this, "Error playing sound.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void registerSymbolNumber() {
+        String enteredSymbolNumber = etSymbolNumber.getText().toString().trim();
+
+        if (enteredSymbolNumber.isEmpty()) {
+            Toast.makeText(this, "Please enter a symbol number.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Store the symbol number in SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("registeredSymbolNumber", enteredSymbolNumber);
+        editor.apply();
+
+        // Optionally, show a Toast message
+        Toast.makeText(this, "Symbol number " + enteredSymbolNumber + " registered successfully.", Toast.LENGTH_SHORT).show();
+
+
+
+    }
+
 }

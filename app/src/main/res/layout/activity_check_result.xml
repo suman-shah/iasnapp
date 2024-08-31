@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,84 +19,110 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:gravity="center"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Enter Symbol Number Field -->
     <EditText
         android:id="@+id/etSymbolNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         android:hint="Enter your symbol number"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Register Symbol Number Button -->
+    <Button
+        android:id="@+id/btnRegisterSymbol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Register Symbol Number"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/blue_500"
+        android:background="@drawable/rounded_buttons"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etSymbolNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Check Result Button -->
     <Button
         android:id="@+id/btnCheckResult"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         android:text="Check Result"
         android:textSize="18sp"
-        android:backgroundTint="@color/purple_500"
         android:textColor="@android:color/white"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/etSymbolNumber"
+        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/rounded_buttons"
+        app:layout_constraintTop_toBottomOf="@id/btnRegisterSymbol"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Download PDF Button -->
     <Button
         android:id="@+id/btnDownload"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         android:text="Download TXT File"
         android:textSize="18sp"
-        android:backgroundTint="@color/purple_700"
         android:textColor="@android:color/white"
-        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/purple_700"
+        android:background="@drawable/rounded_buttons"
         app:layout_constraintTop_toBottomOf="@id/btnCheckResult"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Show Symbol Numbers Button -->
     <Button
         android:id="@+id/btnShowSymbolNumbers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         android:text="Show Symbol Numbers"
         android:textSize="18sp"
-        android:backgroundTint="@color/teal_700"
         android:textColor="@android:color/white"
-        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/teal_700"
+        android:background="@drawable/rounded_buttons"
         app:layout_constraintTop_toBottomOf="@id/btnDownload"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Display Symbol Numbers -->
-    <TextView
-        android:id="@+id/tvSymbolNumbers"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"
-        android:background="@android:color/white"
-        android:elevation="2dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/btnShowSymbolNumbers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp" />
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Display Symbol Numbers TextView -->
+        <TextView
+            android:id="@+id/tvSymbolNumbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_textview"
+            android:elevation="2dp" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
