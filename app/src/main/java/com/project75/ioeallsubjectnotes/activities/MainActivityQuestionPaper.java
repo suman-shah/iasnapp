@@ -111,8 +111,11 @@ public class MainActivityQuestionPaper extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack();
+        if (webView.getUrl().equals("file:///android_asset/error.html")) {
+            // Handle back press when on the error page
+            super.onBackPressed(); // Close the app or activity
+        } else if (webView.canGoBack()) {
+            webView.goBack(); // Go back in web history
         } else {
             super.onBackPressed();
         }
