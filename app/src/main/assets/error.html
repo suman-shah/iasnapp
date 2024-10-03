@@ -72,10 +72,18 @@
             color: white;
             border: none;
             border-radius: 5px;
+            user-select: none; /* Prevents text selection */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds elevation */
+            transition: box-shadow 0.2s ease; /* Smooth transition for the shadow effect */
         }
 
         .control-btn:hover {
             background-color: #2980b9;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Elevation increase on hover */
+        }
+
+        .control-btn:active {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduces elevation on click */
         }
     </style>
 </head>
@@ -99,23 +107,31 @@
 
 <script src="./script.js"></script>
 <script>
-    // Function to check the user's online status
-    function checkOnlineStatus() {
+    // Function to show the message only when the connection is restored
+    function handleConnectionRestored() {
         const offlineMessage = document.querySelector('.offline-message');
+        offlineMessage.style.display = 'block';  // Show message when online
+        setTimeout(() => {
+            offlineMessage.style.display = 'none';  // Hide after 3 seconds
+        }, 3000);
+    }
 
-        if (!navigator.onLine) {
-            offlineMessage.style.display = 'none'; // Show the message if offline
-        } else {
-            offlineMessage.style.display = 'block';  // Hide the message if online
-        }
+    // Function to handle when connection is lost
+    function handleConnectionLost() {
+        const offlineMessage = document.querySelector('.offline-message');
+        offlineMessage.style.display = 'none'; // Hide the message when offline
     }
 
     // Check online status on page load
-    window.addEventListener('load', checkOnlineStatus);
+    window.addEventListener('load', () => {
+        if (!navigator.onLine) {
+            handleConnectionLost();  // Check if offline initially
+        }
+    });
 
-    // Check online status when network status changes
-    window.addEventListener('online', checkOnlineStatus);
-    window.addEventListener('offline', checkOnlineStatus);
+    // Event listeners for online/offline status changes
+    window.addEventListener('online', handleConnectionRestored);   // Show message when connection is restored
+    window.addEventListener('offline', handleConnectionLost);  // Hide message when connection is lost
 
     // Button control
     function handleButtonControl(event, moveDirection) {

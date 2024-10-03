@@ -36,7 +36,9 @@ public class MyWebViewClient extends WebViewClient {
             // Redirect to Google Docs for PDF viewing
             url = "https://docs.google.com/viewer?url=" + url;
         }
-        view.loadUrl(url);
+        if (!url.equals(view.getUrl())) { // Prevent reloading the same URL
+            view.loadUrl(url);
+        }
         return true;
     }
 
